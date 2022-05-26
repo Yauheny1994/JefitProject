@@ -1,37 +1,75 @@
 package org.example.page;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends BasePage{
 
-    @FindBy(xpath = "//input[@id='regusername']")
+    @FindBy(xpath = "//input[@id='navbar_username']")
     private WebElement userNameField;
 
-    @FindBy(xpath = "//input[@id='myemail']")
+    @FindBy(xpath = "//input[@id='navbar_username']")
     private WebElement emailAddressField;
 
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(xpath = "//input[@id='navbar_password']")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//input[@id='passwordconfirm']")
-    private WebElement confirmPasswordField;
+    @FindBy(xpath = "//input[@class='loginblueButton1']")
+    private WebElement buttonLogIn;
 
-    @FindBy(xpath = "//div[@class='recaptcha-checkbox-border']")
-    private WebElement reCaptcha;
+    @FindBy(xpath = "//div[@id ='invalidpassworderrormessage']")
+    private WebElement invalidMessage;
 
-    @FindBy(xpath = "//input[@value='Create Account']")
-    private WebElement buttonCreateAccount;
 
-    public LoginPage fillUserName(String createdUserName) {
-        userNameField.clear();
-        userNameField.sendKeys(createdUserName);
+    public WebElement getUserNameField() {
+        return userNameField;
+    }
+
+    public WebElement getEmailAddressField() {
+        return emailAddressField;
+    }
+
+    public WebElement getPasswordField() {
+        return passwordField;
+    }
+
+    public WebElement getButtonLogIn() {
+        return buttonLogIn;
+    }
+
+    public WebElement getInvalidMessage() {
+        return invalidMessage;
+    }
+
+    public LoginPage openPage(String url) {
+        driver.get(url);
         return this;
     }
 
-    public LoginPage fillEmailAddress(String createdEmailAddress) {
+    public LoginPage clearFieldUserName() {
+        userNameField.clear();
+        return this;
+    }
+
+    public LoginPage clearFieldEmailAddress() {
         emailAddressField.clear();
-        emailAddressField.sendKeys(createdEmailAddress);
+        return this;
+    }
+
+    public LoginPage clearFieldPassword() {
+        passwordField.clear();
+        return this;
+    }
+    public LoginPage fillUsernameAddress(String username) {
+        userNameField.clear();
+        userNameField.sendKeys(username);
+        return this;
+    }
+
+    public LoginPage fillEmailAddress(String emailAddress) {
+        emailAddressField.clear();
+        emailAddressField.sendKeys(emailAddress);
         return this;
     }
 
@@ -41,20 +79,14 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage fillConfirmPassword(String confirmPassword) {
-        passwordField.clear();
-        passwordField.sendKeys(confirmPassword);
+    public LoginPage clickButtonCreateAccount() {
+        buttonLogIn.click();
         return this;
     }
 
-    public LoginPage clickCaptcha() {
-        reCaptcha.click();
-        return this;
-    }
 
-    public void clickButtonCreateAccount() {
-        buttonCreateAccount.click();
-    }
 
 
 }
+
+

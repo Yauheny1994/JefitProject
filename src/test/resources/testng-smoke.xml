@@ -6,4 +6,9 @@
             <class name="org.example.tests.CreateAccountsTest" />
         </classes>
     </test>
+<!--    <test name="LoginTest" >-->
+<!--        <classes>-->
+<!--            <class name="org.example.tests.LogInTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

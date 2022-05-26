@@ -1,11 +1,11 @@
 package org.example.model;
 
-public class User extends CreatedUser {
+public class User {
 
-    String UserName = "Petro";
-    String EmailAddress = "Petrofan@mail.ru";
-    String Password = "Petrofan1@";
-    String ConfirmPassword = "Petrofan1@";
+    private String UserName = "Petro";
+    private String EmailAddress = "Petrofan@mail.ru";
+    private String Password = "Petrofan1@";
+    private String ConfirmPassword = "Petrofan1@";
 
     public String getUserName() {
         return UserName;

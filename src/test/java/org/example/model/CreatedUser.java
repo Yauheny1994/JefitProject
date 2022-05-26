@@ -2,10 +2,10 @@ package org.example.model;
 
 public class CreatedUser {
 
-    String createdUserName = "makarchuk_evgen@inbox.ru";
-    String createdEmailAddress = "makarchuk_evgen@inbox.ru";
-    String createdPassword;
-    String createdConfirmPassword;
+    private String createdUserName = "makarik_ma@mail.ru";
+    private String createdEmailAddress = "Makarik_ma1@mail.ru";
+    private String createdPassword = "Makarik_ma1@mail.ru";
+    private String createdConfirmPassword = "Makarik_ma1@mail.ru";
 
     public String getUserName() {
         return createdUserName;

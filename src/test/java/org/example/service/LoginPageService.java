@@ -1,25 +1,36 @@
 package org.example.service;
 
-import org.example.model.User;
+import org.example.model.CreatedUser;
 import org.example.page.LoginPage;
-import org.example.page.MainPage;
 
 public class LoginPageService {
 
-    public static final String URL_MAIN_PAGE_JEFIT = "https://www.jefit.com/";
-    LoginPageService loginPageService = new LoginPageService();
-    User user = new User();
-    LoginPage loginPage = new LoginPage();
-    MainPage mainPage = new MainPage();
+    public static final String URL_LOGIN_PAGE = "https://www.jefit.com/login/";
 
-    public LoginPageService login() {
-        mainPage.openPage(URL_MAIN_PAGE_JEFIT);
-        loginPage.fillUserName(user.getUserName())
-                .fillEmailAddress(user.getEmailAddress())
-                .fillPassword(user.getPassword())
-                .fillConfirmPassword(user.getConfirmPassword())
-                .clickCaptcha()
-                .clickButtonCreateAccount();
-        return new LoginPageService();
+    CreatedUser createdUser = new CreatedUser();
+    LoginPage loginPage = new LoginPage();
+
+    public LoginPage logInWithOutUsername() {
+        loginPage.openPage(URL_LOGIN_PAGE)
+                .clearFieldUserName()
+                .fillPassword(createdUser.getPassword())
+                .getButtonLogIn().click();
+        return new LoginPage();
+    }
+
+    public LoginPage logInWithOutEmailAddress() {
+        loginPage.openPage(URL_LOGIN_PAGE)
+                .clearFieldEmailAddress()
+                .fillPassword(createdUser.getPassword())
+                .getButtonLogIn().click();
+        return new LoginPage();
+    }
+
+    public LoginPage logInWithOutPassword() {
+        loginPage.openPage(URL_LOGIN_PAGE)
+                .fillUsernameAddress(createdUser.getUserName())
+                .clearFieldPassword()
+                .getButtonLogIn().click();
+        return new LoginPage();
     }
 }

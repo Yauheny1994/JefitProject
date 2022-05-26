@@ -13,7 +13,7 @@ public class MainPage extends BasePage{
         return this;
     }
 
-    private void clickButtonSingUp() {
+    public void clickButtonSingUp() {
         buttonSingUp.click();
     }
 
