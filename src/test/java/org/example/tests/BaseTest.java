@@ -13,7 +13,7 @@ public class BaseTest {
         driver = DriverSingleton.getInstance().getDriver();
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void stopBrowser() {
         DriverSingleton.getInstance().closeDriver();
     }

@@ -10,27 +10,32 @@ public class LoginPageService {
     CreatedUser createdUser = new CreatedUser();
     LoginPage loginPage = new LoginPage();
 
-    public LoginPage logInWithOutUsername() {
+    public void logInWithOutUsername() {
         loginPage.openPage(URL_LOGIN_PAGE)
                 .clearFieldUserName()
                 .fillPassword(createdUser.getPassword())
-                .getButtonLogIn().click();
-        return new LoginPage();
+                .clickButtonLogin();
     }
 
-    public LoginPage logInWithOutEmailAddress() {
+    public void logInWithOutEmailAddress() {
         loginPage.openPage(URL_LOGIN_PAGE)
                 .clearFieldEmailAddress()
                 .fillPassword(createdUser.getPassword())
-                .getButtonLogIn().click();
-        return new LoginPage();
+                .clickButtonLogin();
     }
 
-    public LoginPage logInWithOutPassword() {
+    public void logInWithOutPassword() {
         loginPage.openPage(URL_LOGIN_PAGE)
                 .fillUsernameAddress(createdUser.getUserName())
                 .clearFieldPassword()
-                .getButtonLogIn().click();
-        return new LoginPage();
+                .clickButtonLogin();
+    }
+
+    public void login() {
+        loginPage.openPage(URL_LOGIN_PAGE)
+                .clearFieldUserName()
+                .fillUsernameAddress(createdUser.getUserName())
+                .fillPassword(createdUser.getPassword())
+                .clickButtonLogin();
     }
 }
