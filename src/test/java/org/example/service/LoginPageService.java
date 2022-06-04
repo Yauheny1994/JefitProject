@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.CreatedUser;
 import org.example.page.LoginPage;
+import org.example.page.ProfilePage;
 
 public class LoginPageService {
 
@@ -9,6 +10,7 @@ public class LoginPageService {
 
     CreatedUser createdUser = new CreatedUser();
     LoginPage loginPage = new LoginPage();
+    ProfilePage profilePage = new ProfilePage();
 
     public void logInWithOutUsername() {
         loginPage.openPage(URL_LOGIN_PAGE)
@@ -37,5 +39,15 @@ public class LoginPageService {
                 .fillUsernameAddress(createdUser.getUserName())
                 .fillPassword(createdUser.getPassword())
                 .clickButtonLogin();
+    }
+
+    public String getInvalidMessage() {
+        String invalidMessage = loginPage.getInvalidMessage().getText();
+        return invalidMessage;
+    }
+
+    public String getEnterInProfile() {
+        String enterInProfile = profilePage.getEnterInProfile().getText();
+        return enterInProfile;
     }
 }

@@ -11,48 +11,43 @@ import org.testng.annotations.Test;
 public class LogInTest extends BaseTest {
 
     private static final String MESSAGE_ABOUT_INVALID_EMAIL_OR_USERNAME = "Invalid username/email or password";
-    private static final String MESSAGE_AFTER_ENTER_IN_PROFILE = "Setup Your Profile";
+    private static final String MESSAGE_AFTER_ENTER_IN_PROFILE = "Home";
 
     private LoginPageService loginPageService;
-    private LoginPage loginPage;
-    private ProfilePage profilePage;
 
     @BeforeClass
     public void setUp() {
         loginPageService = new LoginPageService();
-        loginPage = new LoginPage();
-        profilePage = new ProfilePage();
     }
 
-
-    @Test(priority = 1)
+    @Test
     public void logInWithOutFillFieldUsernameTest() {
         loginPageService.logInWithOutUsername();
-        String actualMessage = loginPage.getInvalidMessage().getText();
+        String actualMessage = loginPageService.getInvalidMessage();
         String expectedResult = MESSAGE_ABOUT_INVALID_EMAIL_OR_USERNAME;
         Assert.assertEquals(actualMessage, expectedResult, "You don't login");
     }
 
-    @Test(priority = 2)
+    @Test
     public void logInWithOutFillFieldEmailAddressTest() {
         loginPageService.logInWithOutEmailAddress();
-        String actualMessage = loginPage.getInvalidMessage().getText();
+        String actualMessage = loginPageService.getInvalidMessage();
         String expectedResult = MESSAGE_ABOUT_INVALID_EMAIL_OR_USERNAME;
         Assert.assertEquals(actualMessage, expectedResult, "You don't login");
     }
 
-    @Test(priority = 3)
+    @Test
     public void logInWithOutFillFieldPasswordTest() {
         loginPageService.logInWithOutPassword();
-        String actualMessage = loginPage.getInvalidMessage().getText();
+        String actualMessage = loginPageService.getInvalidMessage();
         String expectedResult = MESSAGE_ABOUT_INVALID_EMAIL_OR_USERNAME;
         Assert.assertEquals(actualMessage, expectedResult, "You don't login");
     }
 
-    @Test(priority = 4)
+    @Test
     public void loginSuccessfulTest() {
         loginPageService.login();
-        String actualResult = profilePage.getEnterInProfile().getText();
+        String actualResult = loginPageService.getEnterInProfile();
         String expectedResult = MESSAGE_AFTER_ENTER_IN_PROFILE;
         Assert.assertEquals(actualResult, expectedResult);
     }

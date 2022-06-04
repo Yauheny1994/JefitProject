@@ -50,12 +50,6 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage fillEmailAddress(String emailAddress) {
-        emailAddressField.clear();
-        emailAddressField.sendKeys(emailAddress);
-        return this;
-    }
-
     public LoginPage fillPassword(String password) {
         passwordField.clear();
         passwordField.sendKeys(password);
