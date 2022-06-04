@@ -3,7 +3,7 @@ package org.example.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//input[@id='navbar_username']")
     private WebElement userNameField;
@@ -15,27 +15,10 @@ public class LoginPage extends BasePage{
     private WebElement passwordField;
 
     @FindBy(xpath = "//input[@class='loginblueButton1']")
-    private WebElement buttonLogIn;
+    private WebElement logInButton;
 
     @FindBy(xpath = "//div[@id ='invalidpassworderrormessage']")
     private WebElement invalidMessage;
-
-
-    public WebElement getUserNameField() {
-        return userNameField;
-    }
-
-    public WebElement getEmailAddressField() {
-        return emailAddressField;
-    }
-
-    public WebElement getPasswordField() {
-        return passwordField;
-    }
-
-    public WebElement getButtonLogIn() {
-        return buttonLogIn;
-    }
 
     public WebElement getInvalidMessage() {
         return invalidMessage;
@@ -60,6 +43,7 @@ public class LoginPage extends BasePage{
         passwordField.clear();
         return this;
     }
+
     public LoginPage fillUsernameAddress(String username) {
         userNameField.clear();
         userNameField.sendKeys(username);
@@ -79,10 +63,8 @@ public class LoginPage extends BasePage{
     }
 
     public void clickButtonLogin() {
-        buttonLogIn.click();
+        logInButton.click();
     }
-
-
 
 
 }
