@@ -6,4 +6,14 @@
             <class name="org.example.tests.LogInTest" />
         </classes>
     </test>
+    <test name="MyRoutinesTest" >
+        <classes>
+            <class name="org.example.tests.CreateNewRoutineTest" />
+        </classes>
+    </test>
+    <test name="StatusTest" >
+        <classes>
+            <class name="org.example.tests.StatusTest" />
+        </classes>
+    </test>
 </suite>

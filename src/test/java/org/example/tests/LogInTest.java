@@ -1,7 +1,5 @@
 package org.example.tests;
 
-import org.example.page.LoginPage;
-import org.example.page.ProfilePage;
 import org.example.service.LoginPageService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -16,7 +14,7 @@ public class LogInTest extends BaseTest {
     private LoginPageService loginPageService;
 
     @BeforeClass
-    public void setUp() {
+    private void setUp() {
         loginPageService = new LoginPageService();
     }
 
