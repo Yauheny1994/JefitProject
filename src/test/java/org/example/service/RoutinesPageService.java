@@ -21,7 +21,8 @@ public class RoutinesPageService {
     public void addNewWorkoutInMyRoutine() {
         loginPageService.login();
         myJefitPageService.goMyRoutinePage();
-        myRoutinesPage.getButtonDownloadARoutine().click();
+        myRoutinesPage.clickTabRoutineManager()
+                      .getButtonDownloadARoutine().click();
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
         routinesPage.clickFirstNameOfPlan();

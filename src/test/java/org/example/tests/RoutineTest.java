@@ -29,11 +29,13 @@ public class RoutineTest extends BaseTest{
                 "routine");
     }
 
-    @Test
-    public void downloadNewMyRoutineTest() {
-        routinesPageService.addNewWorkoutInMyRoutine();
-        String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
-        String expectedNAmeOfDownloadedRoutine = myRoutinePageService.getNameOfDownloadedRoutine();
-        Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNAmeOfDownloadedRoutine);
-    }
+//    @Test
+//    public void downloadNewMyRoutineTest() {
+//        routinesPageService.addNewWorkoutInMyRoutine();
+//        String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
+//        String expectedNAmeOfDownloadedRoutine = myRoutinePageService.getNameOfDownloadedRoutine();
+//        Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNAmeOfDownloadedRoutine);
+//    }
+
+
 }

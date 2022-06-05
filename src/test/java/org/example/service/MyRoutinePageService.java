@@ -14,7 +14,7 @@ public class MyRoutinePageService {
 
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
     public static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
-    public static final String URL_MY_ROUTINE_PAGE = "https://www.jefit.com/my-jefit/my-routines/";
+    public static final String URL_MY_ROUTINE_PAGE = "https://www.jefit.com/my-jefit/my-routines/routine-manager.php";
 
     MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
     RoutineManagerPage routineManagerPage = new RoutineManagerPage();
@@ -41,7 +41,6 @@ public class MyRoutinePageService {
     }
 
     public String getNameOfDownloadedRoutine() {
-        String nameRoutine = myRoutinesPage.getNameOfDownloadedRoutine().getText();
-        return nameRoutine;
+        return myRoutinesPage.getNameOfDownloadedRoutine().getText();
     }
 }
