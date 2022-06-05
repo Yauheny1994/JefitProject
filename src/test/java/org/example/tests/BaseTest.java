@@ -8,12 +8,13 @@ import org.testng.annotations.BeforeTest;
 public class BaseTest {
     protected WebDriver driver;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeTest
     public void startBrowser() {
         driver = DriverSingleton.getInstance().getDriver();
     }
 
-    @AfterTest
+
+    @AfterTest(alwaysRun = true)
     public void stopBrowser() {
         DriverSingleton.getInstance().closeDriver();
     }

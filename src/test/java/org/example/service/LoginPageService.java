@@ -48,4 +48,5 @@ public class LoginPageService {
     public String getEnterInProfile() {
         return myJefitPage.getEnterInProfile().getText();
     }
+
 }

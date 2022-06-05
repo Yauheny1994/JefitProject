@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 public class MyJefitPage extends BasePage {
 
     public static final String URL_MY_JEFIT_PAGE = "https://www.jefit.com/my-jefit/";
+    public static final String STATUS = "Hello";
 
     @FindBy(xpath = "//a[@class='selected']")
     private WebElement enterInProfile;
@@ -22,6 +23,13 @@ public class MyJefitPage extends BasePage {
     @FindBy(xpath = "//div[@class='col-11 pl-0 mx-0']")
     private WebElement status;
 
+    @FindBy(xpath = "//a[@class='raven-button raven-button-link']")
+    private WebElement buttonGetElite;
+
+    public WebElement getStatusField() {
+        return statusField;
+    }
+
     public WebElement getEnterInProfile() {
         return enterInProfile;
     }
@@ -30,8 +38,9 @@ public class MyJefitPage extends BasePage {
         buttonMyRoutines.click();
     }
 
-    public WebElement getStatusField() {
-        return statusField;
+    public MyJefitPage writeStatus() {
+        statusField.sendKeys(STATUS);
+        return this;
     }
 
     public MyJefitPage clickButtonPost() {
@@ -45,5 +54,9 @@ public class MyJefitPage extends BasePage {
 
     public void refreshPage() {
         driver.get(URL_MY_JEFIT_PAGE);
+    }
+
+    public void clickButtonGetElite() {
+        buttonGetElite.click();
     }
 }

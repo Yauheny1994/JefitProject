@@ -3,7 +3,7 @@ package org.example.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MyRoutinesPage extends BasePage{
+public class MyRoutinesPage extends BasePage {
 
     @FindBy(xpath = "//a[@href='./routine-manager.php']")
     private WebElement tabRoutineManager;
@@ -11,9 +11,11 @@ public class MyRoutinesPage extends BasePage{
     @FindBy(xpath = "//a[@href='?action=create']")
     private WebElement buttonCreateNewRoutine;
 
-    public WebElement getTabRoutineManager() {
-        return tabRoutineManager;
-    }
+    @FindBy(xpath = "//a[contains(text(),'Download A Routine')]")
+    private WebElement buttonDownloadARoutine;
+
+    @FindBy(xpath = "//strong[contains(text(),'Copy of 3 Day - My Custom Routine')]")
+    private WebElement nameOfDownloadedRoutine;
 
     public MyRoutinesPage clickTabRoutineManager() {
         tabRoutineManager.click();
@@ -23,4 +25,13 @@ public class MyRoutinesPage extends BasePage{
     public void clickButtonCreateNewAccount() {
         buttonCreateNewRoutine.click();
     }
+
+    public WebElement getButtonDownloadARoutine() {
+        return buttonDownloadARoutine;
+    }
+
+    public WebElement getNameOfDownloadedRoutine() {
+        return nameOfDownloadedRoutine;
+    }
 }
+

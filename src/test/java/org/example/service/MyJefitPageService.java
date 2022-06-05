@@ -1,18 +1,19 @@
 package org.example.service;
 
+import org.example.driver.DriverSingleton;
 import org.example.page.MyJefitPage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MyJefitPageService extends LoginPageService {
+public class MyJefitPageService {
 
     MyJefitPage myJefitPage = new MyJefitPage();
     LoginPageService loginPageService = new LoginPageService();
 
-    public static final String STATUS = "Hello weaklings";
-
-    @Override
-    public void login() {
-        super.login();
-    }
+    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     public void goMyRoutinePage() {
         myJefitPage.goMyRoutinesPage();
@@ -20,9 +21,10 @@ public class MyJefitPageService extends LoginPageService {
 
     public void sendStatus() {
         loginPageService.login();
-        myJefitPage.getStatusField().sendKeys(STATUS);
-        myJefitPage.clickButtonPost();
-        myJefitPage.refreshPage();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(myJefitPage.getStatusField()));
+        myJefitPage.writeStatus()
+                   .clickButtonPost()
+                   .refreshPage();
     }
 
     public String getStatus() {

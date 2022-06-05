@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class StatusTest extends BaseTest{
 
-    public static final String STATUS = "makarik_ma@mail.ru : Hello weaklings";
+    private static final String STATUS = "makarik_ma@mail.ru : Hello";
     MyJefitPageService myJefitPageService;
 
     @BeforeClass
@@ -19,6 +19,7 @@ public class StatusTest extends BaseTest{
     public void setStatusTest() {
         myJefitPageService.sendStatus();
         String actualStatus = myJefitPageService.getStatus();
-        Assert.assertEquals(actualStatus, STATUS);
+        String expectedStatus = STATUS;
+        Assert.assertEquals(actualStatus, expectedStatus);
     }
 }

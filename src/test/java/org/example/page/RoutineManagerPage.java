@@ -25,5 +25,5 @@ public class RoutineManagerPage extends BasePage {
     public WebElement getNameOfRoutine() {
         return nameOfCreatedRoutine;
     }
-}
+    }
 
