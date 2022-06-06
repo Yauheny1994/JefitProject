@@ -8,6 +8,10 @@ public class CopyOfThreeDayPage extends BasePage{
     @FindBy(xpath = "//input[@value='Save To My Workouts']")
     private WebElement buttonSaveToMyWorkout;
 
+    public WebElement getButtonSaveToMyWorkout() {
+        return buttonSaveToMyWorkout;
+    }
+
     public void clickButtonSaveToMyWorkout() {
         buttonSaveToMyWorkout.click();
     }

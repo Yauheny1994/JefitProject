@@ -14,6 +14,7 @@ public class RoutineManagerPage extends BasePage {
     @FindBy(xpath = "//strong[contains(text(),'FirstRoutine')]")
     private WebElement nameOfCreatedRoutine;
 
+
     public WebElement getFieldRoutineName() {
         return fieldRoutineName;
     }

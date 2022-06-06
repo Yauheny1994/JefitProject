@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class RoutineTest extends BaseTest{
 
     private static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
-    public static final String NAME_OF_DOWNLOADED_ROUTINE = "Copy of 3 Day - My Custom Routine";
+    public static final String NAME_OF_DOWNLOADED_ROUTINE = "Three Day Split";
 
     MyRoutinePageService myRoutinePageService;
     RoutinesPageService routinesPageService;
@@ -20,7 +20,7 @@ public class RoutineTest extends BaseTest{
         routinesPageService = new RoutinesPageService();
     }
 
-    @Test
+    @Test(priority = 1)
     public void createdNewMyRoutineTest() {
         myRoutinePageService.createNewRoutine();
         String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfRoutine();
@@ -29,13 +29,13 @@ public class RoutineTest extends BaseTest{
                 "routine");
     }
 
-//    @Test
-//    public void downloadNewMyRoutineTest() {
-//        routinesPageService.addNewWorkoutInMyRoutine();
-//        String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
-//        String expectedNAmeOfDownloadedRoutine = myRoutinePageService.getNameOfDownloadedRoutine();
-//        Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNAmeOfDownloadedRoutine);
-//    }
+    @Test(priority = 2)
+    public void downloadNewMyRoutineTest() {
+        routinesPageService.addNewWorkoutInMyRoutine();
+        String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
+        String expectedNameOfDownloadedRoutine = myRoutinePageService.getNameOfDownloadedRoutine();
+        Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNameOfDownloadedRoutine);
+    }
 
 
 }

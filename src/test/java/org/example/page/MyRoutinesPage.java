@@ -14,7 +14,7 @@ public class MyRoutinesPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Download A Routine')]")
     private WebElement buttonDownloadARoutine;
 
-    @FindBy(xpath = "//strong[contains(text(),'Copy of 3 Day - My Custom Routine')]")
+    @FindBy(xpath = "//strong[contains(text(),'Three Day Split')]")
     private WebElement nameOfDownloadedRoutine;
 
     public MyRoutinesPage clickTabRoutineManager() {

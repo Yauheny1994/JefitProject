@@ -46,7 +46,7 @@ public class LoginPageService {
     }
 
     public String getEnterInProfile() {
-        return myJefitPage.getEnterInProfile().getText();
+        return myJefitPage.getButtonHome().getText();
     }
 
 }
