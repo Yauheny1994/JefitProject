@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class RoutinesPage extends BasePage {
 
-    @FindBy(xpath = "//a[@href=\"447435/copy-of-3-day-my-custom-routine\"]//div[contains(text(),'Copy of 3 Day')]")
+    @FindBy(xpath = "//div[contains(text(),'Three Day Split')]")
     private WebElement firstNameOfPlan;
 
     public void clickFirstNameOfPlan() {

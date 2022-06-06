@@ -20,6 +20,8 @@ public class MyRoutinePageService {
     RoutineManagerPage routineManagerPage = new RoutineManagerPage();
     MyJefitPageService myJefitPageService = new MyJefitPageService();
     LoginPageService loginPageService = new LoginPageService();
+    MyJefitPage myJefitPage = new MyJefitPage();
+
 
     public String getNameOfRoutine() {
         return routineManagerPage.getNameOfRoutine().getText();
@@ -27,9 +29,11 @@ public class MyRoutinePageService {
 
     public void createNewRoutine() {
         loginPageService.login();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myJefitPage.getButtonMyRoutines()));
         myJefitPageService.goMyRoutinePage();
         myRoutinesPage.clickTabRoutineManager()
                 .clickButtonCreateNewAccount();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
         routineManagerPage.getFieldRoutineName().sendKeys(NAME_OF_CREATED_ROUTINE);
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");

@@ -9,7 +9,11 @@ public class MyJefitPage extends BasePage {
     public static final String STATUS = "Hello";
 
     @FindBy(xpath = "//a[@class='selected']")
-    private WebElement enterInProfile;
+    private WebElement buttonHome;
+
+    @FindBy(xpath = "//a[@href='stats.php']")
+    private WebElement buttonBodyStats;
+
 
     @FindBy(xpath = "//a[contains(text(),'My Routines')]")
     private WebElement buttonMyRoutines;
@@ -26,12 +30,31 @@ public class MyJefitPage extends BasePage {
     @FindBy(xpath = "//a[@class='raven-button raven-button-link']")
     private WebElement buttonGetElite;
 
+    @FindBy(xpath = "//a[@href='https://www.jefit.com/my-refit/my-exercises/']")
+    private WebElement buttonMyCustomExercise;
+
+    @FindBy(xpath = "//div[contains(text(),'Latest Body Stats')]")
+    private WebElement linkLatestBodyStats;
+
+
     public WebElement getStatusField() {
         return statusField;
     }
 
-    public WebElement getEnterInProfile() {
-        return enterInProfile;
+    public WebElement getButtonBodyStats() {
+        return buttonBodyStats;
+    }
+
+    public WebElement getButtonHome() {
+        return buttonHome;
+    }
+
+    public WebElement getButtonMyRoutines() {
+        return buttonMyRoutines;
+    }
+
+    public WebElement getButtonMyCustomExercise() {
+        return buttonMyCustomExercise;
     }
 
     public void goMyRoutinesPage() {
@@ -59,4 +82,9 @@ public class MyJefitPage extends BasePage {
     public void clickButtonGetElite() {
         buttonGetElite.click();
     }
+
+    public WebElement getLinkLatestBodyStats() {
+        return linkLatestBodyStats;
+    }
+
 }
