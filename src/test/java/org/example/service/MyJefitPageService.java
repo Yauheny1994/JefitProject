@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MyJefitPageService {
 
-    MyJefitPage myJefitPage = new MyJefitPage();
-    LoginPageService loginPageService = new LoginPageService();
+    private MyJefitPage myJefitPage = new MyJefitPage();
+    private LoginPageService loginPageService = new LoginPageService();
 
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 

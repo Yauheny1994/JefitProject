@@ -12,15 +12,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MyRoutinePageService {
 
 
-    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private WebDriver driver = DriverSingleton.getInstance().getDriver();
     public static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
     public static final String URL_MY_ROUTINE_PAGE = "https://www.jefit.com/my-jefit/my-routines/routine-manager.php";
 
-    MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
-    RoutineManagerPage routineManagerPage = new RoutineManagerPage();
-    MyJefitPageService myJefitPageService = new MyJefitPageService();
-    LoginPageService loginPageService = new LoginPageService();
-    MyJefitPage myJefitPage = new MyJefitPage();
+    private MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
+    private RoutineManagerPage routineManagerPage = new RoutineManagerPage();
+    private MyJefitPageService myJefitPageService = new MyJefitPageService();
+    private LoginPageService loginPageService = new LoginPageService();
+    private MyJefitPage myJefitPage = new MyJefitPage();
 
 
     public String getNameOfRoutine() {

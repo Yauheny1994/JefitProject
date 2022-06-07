@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.driver.DriverSingleton;
 import org.example.page.ElitePage;
+import org.example.page.MyJefitPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ElitePageService extends LoginPageService{
 
-    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private WebDriver driver = DriverSingleton.getInstance().getDriver();
 
-    ElitePage elitePage = new ElitePage();
-    LoginPageService loginPageService = new LoginPageService();
+    private ElitePage elitePage = new ElitePage();
+    private LoginPageService loginPageService = new LoginPageService();
+    private MyJefitPage myJefitPage = new MyJefitPage();
 
     public ElitePageService goToElitePage() {
         loginPageService.login();

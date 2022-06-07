@@ -11,11 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RoutinesPageService {
 
-    MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
-    RoutinesPage routinesPage = new RoutinesPage();
-    CopyOfThreeDayPage copyOfThreeDayPage = new CopyOfThreeDayPage();
-    MyRoutinePageService myRoutinePageService = new MyRoutinePageService();
-    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
+    private RoutinesPage routinesPage = new RoutinesPage();
+    private CopyOfThreeDayPage copyOfThreeDayPage = new CopyOfThreeDayPage();
+    private MyRoutinePageService myRoutinePageService = new MyRoutinePageService();
+    private WebDriver driver = DriverSingleton.getInstance().getDriver();
 
 
     public void addNewWorkoutInMyRoutine() {

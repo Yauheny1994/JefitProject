@@ -8,9 +8,9 @@ public class LoginPageService {
 
     public static final String URL_LOGIN_PAGE = "https://www.jefit.com/login/";
 
-    CreatedUser createdUser = new CreatedUser();
-    LoginPage loginPage = new LoginPage();
-    MyJefitPage myJefitPage = new MyJefitPage();
+    private CreatedUser createdUser = new CreatedUser();
+    private LoginPage loginPage = new LoginPage();
+    private MyJefitPage myJefitPage = new MyJefitPage();
 
     public void logInWithOutUsername() {
         loginPage.openPage(URL_LOGIN_PAGE)

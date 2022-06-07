@@ -8,18 +8,23 @@ import org.openqa.selenium.opera.OperaDriver;
 
 public class WebDriverFactory {
 
+    public static final String BROWSER = "browser";
+    public static final String FIREFOX = "firefox";
+    public static final String OPERA = "opera";
+
+
     public WebDriverFactory() {
     }
 
     public static WebDriver getWebDriver() {
         WebDriver driver;
-        switch (System.getProperty("browser")) {
-            case "firefox": {
+        switch (System.getProperty(BROWSER)) {
+            case FIREFOX: {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
             }
-            case "opera": {
+            case OPERA: {
                 WebDriverManager.operadriver().setup();
                 driver = new OperaDriver();
                 break;

@@ -3,6 +3,7 @@ package org.example.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class ElitePage extends BasePage {
 
     @FindBy(xpath = "//span[contains(text(),'Plans that suit you best')]")
