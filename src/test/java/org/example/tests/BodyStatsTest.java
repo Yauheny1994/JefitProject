@@ -12,8 +12,8 @@ public class BodyStatsTest extends BaseTest {
 
     public static final String NAME_OF_LINK = "Latest Body Stats";
 
-    MyJefitPageService myJefitPageService;
-    MyJefitPage myJefitPage;
+    private MyJefitPageService myJefitPageService;
+    private MyJefitPage myJefitPage;
 
     @BeforeClass
     public void setup() {
