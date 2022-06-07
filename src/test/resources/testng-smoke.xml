@@ -1,29 +1,29 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Smoke" verbose="1">
-<!--    <test name="LoginTest" >-->
-<!--        <classes>-->
-<!--            <class name="org.example.tests.LogInTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="LoginTest" >
+        <classes>
+            <class name="org.example.tests.LogInTest" />
+        </classes>
+    </test>
     <test name="RoutinesTest" >
         <classes>
             <class name="org.example.tests.RoutineTest" />
         </classes>
     </test>
-<!--    <test name="StatusTest" >-->
-<!--        <classes>-->
-<!--            <class name="org.example.tests.StatusTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="EliteTest" >-->
-<!--        <classes>-->
-<!--            <class name="org.example.tests.EliteTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--        <test name="BodyStatsTest" >-->
-<!--            <classes>-->
-<!--                <class name="org.example.tests.BodyStatsTest" />-->
-<!--            </classes>-->
-<!--        </test>-->
+    <test name="StatusTest" >
+        <classes>
+            <class name="org.example.tests.StatusTest" />
+        </classes>
+    </test>
+    <test name="EliteTest" >
+        <classes>
+            <class name="org.example.tests.EliteTest" />
+        </classes>
+    </test>
+        <test name="BodyStatsTest" >
+            <classes>
+                <class name="org.example.tests.BodyStatsTest" />
+            </classes>
+        </test>
 </suite>
