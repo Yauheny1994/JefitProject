@@ -22,6 +22,10 @@ public class MyRoutinesPage extends BasePage {
         return this;
     }
 
+    public WebElement getTabRoutineManager() {
+        return tabRoutineManager;
+    }
+
     public void clickButtonCreateNewAccount() {
         buttonCreateNewRoutine.click();
     }

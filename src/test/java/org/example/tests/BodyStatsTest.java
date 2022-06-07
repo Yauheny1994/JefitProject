@@ -1,10 +1,7 @@
 package org.example.tests;
 
-import org.example.driver.DriverSingleton;
 import org.example.page.MyJefitPage;
-import org.example.service.LoginPageService;
 import org.example.service.MyJefitPageService;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;

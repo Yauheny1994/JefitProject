@@ -31,6 +31,7 @@ public class MyRoutinePageService {
         loginPageService.login();
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myJefitPage.getButtonMyRoutines()));
         myJefitPageService.goMyRoutinePage();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getTabRoutineManager()));
         myRoutinesPage.clickTabRoutineManager()
                 .clickButtonCreateNewAccount();
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
