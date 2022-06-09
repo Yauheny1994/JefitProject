@@ -21,7 +21,7 @@ public class RoutineTest extends BaseTest {
         routinesPageService = new RoutinesPageService();
     }
 
-    @Test(priority = 1, enabled = false)
+    @Test(priority = 1)
     public void createdNewMyRoutineTest() {
         myRoutinePageService.createNewRoutine();
         String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfRoutine();
@@ -30,7 +30,7 @@ public class RoutineTest extends BaseTest {
                 "routine");
     }
 
-    @Test(priority = 2, enabled = false)
+    @Test(priority = 2, enabled = true)
     public void downloadNewMyRoutineTest() {
         routinesPageService.addNewWorkoutInMyRoutine();
         String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
