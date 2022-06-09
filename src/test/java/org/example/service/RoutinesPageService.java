@@ -1,5 +1,6 @@
 package org.example.service;
 
+import lombok.extern.log4j.Log4j2;
 import org.example.driver.DriverSingleton;
 import org.example.page.CopyOfThreeDayPage;
 import org.example.page.MyRoutinesPage;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+@Log4j2
 public class RoutinesPageService {
 
     private MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
@@ -19,14 +21,18 @@ public class RoutinesPageService {
 
 
     public void addNewWorkoutInMyRoutine() {
+        log.info("click button 'Download Routine'");
         myRoutinesPage.getButtonDownloadARoutine().click();
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        routinesPage.clickFirstNameOfPlan();
-        new WebDriverWait(driver,5).until(ExpectedConditions.elementToBeClickable(copyOfThreeDayPage.getButtonSaveToMyWorkout()));
-        JavascriptExecutor jsx = (JavascriptExecutor)driver;
+        log.info("click 'Name of plan'");
+        routinesPage.clickNameOfPlan();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(copyOfThreeDayPage.getButtonSaveToMyWorkout()));
+        JavascriptExecutor jsx = (JavascriptExecutor) driver;
         jsx.executeScript("window.scrollBy(0,130)", "");
+        log.info("click button 'Save to My Workout'");
         copyOfThreeDayPage.clickButtonSaveToMyWorkout();
+        log.info("refresh 'My Routine' page");
         myRoutinePageService.openMyRoutinePage();
     }
 }

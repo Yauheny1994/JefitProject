@@ -20,7 +20,7 @@ public class EliteTest extends BaseTest{
     @Test
     public void goToElitePage() {
         elitePageService.goToElitePage();
-        String actualWelcomeMessageOnTheElitePage = elitePageService.getWelcomeMassageOnTheElitePage();
+        String actualWelcomeMessageOnTheElitePage = elitePageService.getWelcomeMassageOnElitePage();
         String expectedWelcomeMessageOnTheElitePAge = WELCOME_MESSAGE_ON_THE_ELITE_PAGE;
         Assert.assertEquals(actualWelcomeMessageOnTheElitePage, expectedWelcomeMessageOnTheElitePAge, "You aren't " +
                 "on the Elite Page");

@@ -1,5 +1,6 @@
 package org.example.service;
 
+import lombok.extern.log4j.Log4j2;
 import org.example.driver.DriverSingleton;
 import org.example.page.MyJefitPage;
 import org.example.page.MyRoutinesPage;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+@Log4j2
 public class MyRoutinePageService {
 
 
@@ -24,28 +26,36 @@ public class MyRoutinePageService {
 
 
     public String getNameOfRoutine() {
-        return routineManagerPage.getNameOfRoutine().getText();
+        log.info("get Name of Routine");
+        return routineManagerPage.getNameOfCreatedRoutine().getText();
     }
 
     public void createNewRoutine() {
+        log.info("login");
         loginPageService.login();
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myJefitPage.getButtonMyRoutines()));
+        log.info("open 'My Routine Page'");
         myJefitPageService.goMyRoutinePage();
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getTabRoutineManager()));
-        myRoutinesPage.clickTabRoutineManager()
+        log.info("create new account");
+        myRoutinesPage.clickLinkRoutineManager()
                 .clickButtonCreateNewAccount();
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
+        log.info("fill name of routine");
         routineManagerPage.getFieldRoutineName().sendKeys(NAME_OF_CREATED_ROUTINE);
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        log.info("click button 'Save Routine'");
         routineManagerPage.clickButtonSaveRoutine();
     }
 
     public void openMyRoutinePage() {
+        log.info("open 'My routine' page");
         driver.get(URL_MY_ROUTINE_PAGE);
     }
 
     public String getNameOfDownloadedRoutine() {
+        log.info("get name of downloaded routine");
         return myRoutinesPage.getNameOfDownloadedRoutine().getText();
     }
 }

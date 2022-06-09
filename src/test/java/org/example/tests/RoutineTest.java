@@ -6,10 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class RoutineTest extends BaseTest{
+public class RoutineTest extends BaseTest {
 
     private static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
-    public static final String NAME_OF_DOWNLOADED_ROUTINE = "Three Day Split";
+    public static final String NAME_OF_DOWNLOADED_ROUTINE = "Machine Leg Program";
 
     private MyRoutinePageService myRoutinePageService;
     private RoutinesPageService routinesPageService;
@@ -36,6 +36,4 @@ public class RoutineTest extends BaseTest{
         String expectedNameOfDownloadedRoutine = myRoutinePageService.getNameOfDownloadedRoutine();
         Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNameOfDownloadedRoutine);
     }
-
-
 }

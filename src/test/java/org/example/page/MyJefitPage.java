@@ -1,8 +1,12 @@
 package org.example.page;
 
+import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Getter
+@Log4j2
 public class MyJefitPage extends BasePage {
 
     public static final String URL_MY_JEFIT_PAGE = "https://www.jefit.com/my-jefit/";
@@ -13,7 +17,6 @@ public class MyJefitPage extends BasePage {
 
     @FindBy(xpath = "//a[@href='stats.php']")
     private WebElement buttonBodyStats;
-
 
     @FindBy(xpath = "//a[contains(text(),'My Routines')]")
     private WebElement buttonMyRoutines;
@@ -37,54 +40,30 @@ public class MyJefitPage extends BasePage {
     private WebElement linkLatestBodyStats;
 
 
-    public WebElement getStatusField() {
-        return statusField;
-    }
-
-    public WebElement getButtonBodyStats() {
-        return buttonBodyStats;
-    }
-
-    public WebElement getButtonHome() {
-        return buttonHome;
-    }
-
-    public WebElement getButtonMyRoutines() {
-        return buttonMyRoutines;
-    }
-
-    public WebElement getButtonMyCustomExercise() {
-        return buttonMyCustomExercise;
-    }
-
     public void goMyRoutinesPage() {
+        log.info("click link 'My routines Page' on 'My Jefit' page");
         buttonMyRoutines.click();
     }
 
     public MyJefitPage writeStatus() {
+        log.info("write status in field 'STATUS'");
         statusField.sendKeys(STATUS);
         return this;
     }
 
     public MyJefitPage clickButtonPost() {
+        log.info("click button 'Post'");
         buttonPost.click();
         return this;
     }
 
-    public WebElement getStatus() {
-        return status;
-    }
-
     public void refreshPage() {
+        log.info("open 'My Jefit' page");
         driver.get(URL_MY_JEFIT_PAGE);
     }
 
     public void clickButtonGetElite() {
+        log.info("click button 'Get Elite'");
         buttonGetElite.click();
     }
-
-    public WebElement getLinkLatestBodyStats() {
-        return linkLatestBodyStats;
-    }
-
 }
