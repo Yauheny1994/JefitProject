@@ -31,7 +31,7 @@ public class EliteTest extends BaseTest{
         elitePageService.getEliteForOneMonth();
         String actualNameOfPlan = elitePageService.getNameOfPlan();
         String expectedNameOfPlan = NAME_OF_ELITE_PLAN;
-        Assert.assertEquals(actualNameOfPlan, expectedNameOfPlan);
+        Assert.assertEquals(actualNameOfPlan, expectedNameOfPlan, "You didn't take Elite for one month");
 
     }
 }

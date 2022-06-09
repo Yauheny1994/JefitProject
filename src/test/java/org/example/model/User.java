@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public class User {
 
-    private String userName = "makarik_ma@mail.ru";
+    private final String userName = "makarik_ma@mail.ru";
 
-    private String password = "Makarik_ma1@mail.ru";
+    private final String password = "Makarik_ma1@mail.ru";
 
 }

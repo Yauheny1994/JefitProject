@@ -53,8 +53,8 @@ public class LoginPageService {
         return loginPage.getInvalidMessage().getText();
     }
 
-    public String getMessageEnterInProfile() {
-        log.info("get message after successful login");
+    public String getButtonHome() {
+        log.info("get button 'Home' after successful login on 'My Jefit' page");
         return myJefitPage.getButtonHome().getText();
     }
 }

@@ -1,6 +1,7 @@
 package org.example.tests;
 
 import org.example.service.LoginPageService;
+import org.example.utils.Retry;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,7 +26,7 @@ public class LogInTest extends BaseTest {
         loginPageService.logInWithOutUsername();
         actualMessage = loginPageService.getInvalidMessage();
         expectedResult = MESSAGE_ABOUT_INVALID_EMAIL_OR_USERNAME;
-        Assert.assertEquals(actualMessage, expectedResult, "You don't login");
+        Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 
     @Test
@@ -33,7 +34,7 @@ public class LogInTest extends BaseTest {
         loginPageService.logInWithOutEmailAddress();
         actualMessage = loginPageService.getInvalidMessage();
         expectedResult = MESSAGE_ABOUT_INVALID_EMAIL_OR_USERNAME;
-        Assert.assertEquals(actualMessage, expectedResult, "You don't login");
+        Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 
     @Test
@@ -41,14 +42,14 @@ public class LogInTest extends BaseTest {
         loginPageService.logInWithOutPassword();
         actualMessage = loginPageService.getInvalidMessage();
         expectedResult = MESSAGE_ABOUT_INVALID_EMAIL_OR_USERNAME;
-        Assert.assertEquals(actualMessage, expectedResult, "You don't login");
+        Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void loginSuccessfulTest() {
         loginPageService.login();
-        actualMessage = loginPageService.getMessageEnterInProfile();
+        actualMessage = loginPageService.getButtonHome();
         expectedResult = MESSAGE_AFTER_ENTER_IN_PROFILE;
-        Assert.assertEquals(actualMessage, expectedResult);
+        Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 }

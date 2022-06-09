@@ -21,6 +21,6 @@ public class StatusTest extends BaseTest {
         myJefitPageService.sendStatus();
         String actualStatus = myJefitPageService.getStatus();
         String expectedStatus = STATUS;
-        Assert.assertEquals(actualStatus, expectedStatus);
+        Assert.assertEquals(actualStatus, expectedStatus, "You didn't send your status");
     }
 }

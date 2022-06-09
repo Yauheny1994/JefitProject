@@ -11,6 +11,7 @@ public class RoutineTest extends BaseTest {
     private static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
     public static final String NAME_OF_DOWNLOADED_ROUTINE = "Machine Leg Program";
 
+
     private MyRoutinePageService myRoutinePageService;
     private RoutinesPageService routinesPageService;
 
@@ -20,7 +21,7 @@ public class RoutineTest extends BaseTest {
         routinesPageService = new RoutinesPageService();
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, enabled = false)
     public void createdNewMyRoutineTest() {
         myRoutinePageService.createNewRoutine();
         String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfRoutine();
@@ -29,11 +30,12 @@ public class RoutineTest extends BaseTest {
                 "routine");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, enabled = false)
     public void downloadNewMyRoutineTest() {
         routinesPageService.addNewWorkoutInMyRoutine();
         String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
         String expectedNameOfDownloadedRoutine = myRoutinePageService.getNameOfDownloadedRoutine();
-        Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNameOfDownloadedRoutine);
+        Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNameOfDownloadedRoutine, "You didn't download" +
+                "routine");
     }
 }
