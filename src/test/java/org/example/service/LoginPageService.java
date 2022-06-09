@@ -1,52 +1,60 @@
 package org.example.service;
 
-import org.example.model.CreatedUser;
+import lombok.extern.log4j.Log4j2;
+import org.example.model.User;
 import org.example.page.LoginPage;
 import org.example.page.MyJefitPage;
+
+@Log4j2
 
 public class LoginPageService {
 
     public static final String URL_LOGIN_PAGE = "https://www.jefit.com/login/";
 
-    private CreatedUser createdUser = new CreatedUser();
+    private User user = new User();
     private LoginPage loginPage = new LoginPage();
     private MyJefitPage myJefitPage = new MyJefitPage();
 
     public void logInWithOutUsername() {
+        log.info("fill field password on 'Login' page");
         loginPage.openPage(URL_LOGIN_PAGE)
-                .clearFieldUserName()
-                .fillPassword(createdUser.getPassword())
-                .clickButtonLogin();
+                 .clearFieldUserName()
+                 .fillPassword(user.getPassword())
+                 .clickButtonLogin();
     }
 
     public void logInWithOutEmailAddress() {
+        log.info("fill field password on 'Login' page");
         loginPage.openPage(URL_LOGIN_PAGE)
-                .clearFieldEmailAddress()
-                .fillPassword(createdUser.getPassword())
-                .clickButtonLogin();
+                 .clearFieldEmailAddress()
+                 .fillPassword(user.getPassword())
+                 .clickButtonLogin();
     }
 
     public void logInWithOutPassword() {
+        log.info("fill field username on 'Login' page");
         loginPage.openPage(URL_LOGIN_PAGE)
-                .fillUsernameAddress(createdUser.getUserName())
-                .clearFieldPassword()
-                .clickButtonLogin();
+                 .fillUserNameField(user.getUserName())
+                 .clearFieldPassword()
+                 .clickButtonLogin();
     }
 
     public void login() {
+        log.info("fill all field on 'Login' page and click button 'Login'");
         loginPage.openPage(URL_LOGIN_PAGE)
-                .clearFieldUserName()
-                .fillUsernameAddress(createdUser.getUserName())
-                .fillPassword(createdUser.getPassword())
-                .clickButtonLogin();
+                 .clearFieldUserName()
+                 .fillUserNameField(user.getUserName())
+                 .fillPassword(user.getPassword())
+                 .clickButtonLogin();
     }
 
     public String getInvalidMessage() {
+        log.info("get 'Invalid Message'");
         return loginPage.getInvalidMessage().getText();
     }
 
-    public String getEnterInProfile() {
+    public String getMessageEnterInProfile() {
+        log.info("get message after successful login");
         return myJefitPage.getButtonHome().getText();
     }
-
 }

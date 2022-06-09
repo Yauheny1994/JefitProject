@@ -47,9 +47,8 @@ public class LogInTest extends BaseTest {
     @Test
     public void loginSuccessfulTest() {
         loginPageService.login();
-        actualMessage = loginPageService.getEnterInProfile();
+        actualMessage = loginPageService.getMessageEnterInProfile();
         expectedResult = MESSAGE_AFTER_ENTER_IN_PROFILE;
         Assert.assertEquals(actualMessage, expectedResult);
     }
-
 }
