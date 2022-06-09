@@ -22,7 +22,7 @@ public class BodyStatsTest extends BaseTest {
     }
 
     @Test
-    public void goToPageLatestBodyStats() {
+    public void goToPageBodyStats() {
         myJefitPageService.goToPageLatestBodyStats();
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(myJefitPage.getLinkLatestBodyStats()));
                 String actualNameOfLink = myJefitPageService.getLinkOnThePageLatestBodyStats();

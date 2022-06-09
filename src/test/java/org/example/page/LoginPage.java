@@ -12,9 +12,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@id='navbar_username']")
     private WebElement userNameField;
 
-    @FindBy(xpath = "//input[@id='navbar_username']")
-    private WebElement emailAddressField;
-
     @FindBy(xpath = "//input[@id='navbar_password']")
     private WebElement passwordField;
 
@@ -33,12 +30,6 @@ public class LoginPage extends BasePage {
     public LoginPage clearFieldUserName() {
         log.info("clear field User Name");
         userNameField.clear();
-        return this;
-    }
-
-    public LoginPage clearFieldEmailAddress() {
-        log.info("clear field Email Address");
-        emailAddressField.clear();
         return this;
     }
 

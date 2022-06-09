@@ -15,24 +15,24 @@ public class LoginPageService {
     private LoginPage loginPage = new LoginPage();
     private MyJefitPage myJefitPage = new MyJefitPage();
 
-    public void logInWithOutUsername() {
-        log.info("fill field password on 'Login' page");
+    public void logInWithoutFillingUsername() {
+        log.info("fill field password on 'Login' page and click button 'Login'");
         loginPage.openPage(URL_LOGIN_PAGE)
                  .clearFieldUserName()
                  .fillPassword(user.getPassword())
                  .clickButtonLogin();
     }
 
-    public void logInWithOutEmailAddress() {
-        log.info("fill field password on 'Login' page");
+    public void logInWithoutFillingAllTheFields() {
+        log.info("open 'Login' page and click button 'Login'");
         loginPage.openPage(URL_LOGIN_PAGE)
-                 .clearFieldEmailAddress()
-                 .fillPassword(user.getPassword())
+                 .clearFieldUserName()
+                 .clearFieldPassword()
                  .clickButtonLogin();
     }
 
-    public void logInWithOutPassword() {
-        log.info("fill field username on 'Login' page");
+    public void logInWithoutFillingPassword() {
+        log.info("fill field username on 'Login' page and click button 'Login'");
         loginPage.openPage(URL_LOGIN_PAGE)
                  .fillUserNameField(user.getUserName())
                  .clearFieldPassword()

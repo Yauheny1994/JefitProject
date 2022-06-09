@@ -30,7 +30,7 @@ public class RoutineTest extends BaseTest {
                 "routine");
     }
 
-    @Test(priority = 2, enabled = true)
+    @Test(priority = 2)
     public void downloadNewMyRoutineTest() {
         routinesPageService.addNewWorkoutInMyRoutine();
         String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
