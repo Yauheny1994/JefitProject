@@ -2,6 +2,7 @@ package org.example.tests;
 
 import org.example.service.MyRoutinePageService;
 import org.example.service.RoutinesPageService;
+import org.example.utils.Retry;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 public class RoutineTest extends BaseTest {
 
     private static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
-    public static final String NAME_OF_DOWNLOADED_ROUTINE = "Machine Leg Program";
+    public static final String NAME_OF_DOWNLOADED_ROUTINE = "Copy of 3 Day - My Custom Routine";
 
 
     private MyRoutinePageService myRoutinePageService;
@@ -21,7 +22,7 @@ public class RoutineTest extends BaseTest {
         routinesPageService = new RoutinesPageService();
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, retryAnalyzer = Retry.class)
     public void createdNewMyRoutineTest() {
         myRoutinePageService.createNewRoutine();
         String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfRoutine();

@@ -25,7 +25,7 @@ public class BodyStatsTest extends BaseTest {
     public void goToPageBodyStats() {
         myJefitPageService.goToPageLatestBodyStats();
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(myJefitPage.getLinkLatestBodyStats()));
-                String actualNameOfLink = myJefitPageService.getLinkOnThePageLatestBodyStats();
+        String actualNameOfLink = myJefitPageService.getLinkOnThePageLatestBodyStats();
         String expectedNameOfLink = NAME_OF_LINK;
         Assert.assertEquals(actualNameOfLink, expectedNameOfLink);
 

@@ -7,12 +7,12 @@ import org.openqa.selenium.support.FindBy;
 @Log4j2
 public class RoutinesPage extends BasePage {
 
-    @FindBy(xpath = "//div[contains(text(),'Machine Leg Program')]")
-    private WebElement firstNameOfPlan;
+    @FindBy(xpath = "//div[contains(text(),'My Custom Routine')]")
+    private WebElement nameOfPlan;
 
     public void clickNameOfPlan() {
         log.info("click 'Name of plan'");
-        firstNameOfPlan.click();
+        nameOfPlan.click();
     }
 }
 

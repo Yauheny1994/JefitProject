@@ -45,7 +45,7 @@ public class LogInTest extends BaseTest {
         Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 
-    @Test(retryAnalyzer = Retry.class)
+    @Test
     public void loginSuccessfulTest() {
         loginPageService.login();
         actualMessage = loginPageService.getButtonHome();

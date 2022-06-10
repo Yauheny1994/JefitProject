@@ -38,8 +38,9 @@ public class MyRoutinePageService {
         myJefitPageService.goMyRoutinePage();
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getTabRoutineManager()));
         log.info("create new account");
-        myRoutinesPage.clickLinkRoutineManager()
-                .clickButtonCreateNewAccount();
+        myRoutinesPage.clickLinkRoutineManager();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getButtonCreateNewRoutine()));
+        myRoutinesPage.clickButtonCreateNewAccount();
         new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
         log.info("fill name of routine");
         routineManagerPage.getFieldRoutineName().sendKeys(NAME_OF_CREATED_ROUTINE);

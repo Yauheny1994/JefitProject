@@ -18,7 +18,7 @@ public class MyRoutinesPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Download A Routine')]")
     private WebElement buttonDownloadARoutine;
 
-    @FindBy(xpath = "//strong[contains(text(),'Machine Leg Program')]")
+    @FindBy(xpath = "//strong[contains(text(),'My Custom Routine')]")
     private WebElement nameOfDownloadedRoutine;
 
     public MyRoutinesPage clickLinkRoutineManager() {
