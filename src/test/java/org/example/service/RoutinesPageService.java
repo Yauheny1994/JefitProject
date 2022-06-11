@@ -10,14 +10,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 @Log4j2
 public class RoutinesPageService {
 
-    private MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
-    private RoutinesPage routinesPage = new RoutinesPage();
-    private CopyOfThreeDayPage copyOfThreeDayPage = new CopyOfThreeDayPage();
-    private MyRoutinePageService myRoutinePageService = new MyRoutinePageService();
-    private WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private final MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
+    private final RoutinesPage routinesPage = new RoutinesPage();
+    private final CopyOfThreeDayPage copyOfThreeDayPage = new CopyOfThreeDayPage();
+    private final MyRoutinePageService myRoutinePageService = new MyRoutinePageService();
+    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
 
 
     public void addNewWorkoutInMyRoutine() {
@@ -27,7 +29,7 @@ public class RoutinesPageService {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
         log.info("click 'Name of plan'");
         routinesPage.clickNameOfPlan();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(copyOfThreeDayPage.getButtonSaveToMyWorkout()));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(copyOfThreeDayPage.getButtonSaveToMyWorkout()));
         JavascriptExecutor jsx = (JavascriptExecutor) driver;
         jsx.executeScript("window.scrollBy(0,130)", "");
         log.info("click button 'Save to My Workout'");

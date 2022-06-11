@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 @Log4j2
 
 public class MyJefitPageService {
 
-    private MyJefitPage myJefitPage = new MyJefitPage();
-    private LoginPageService loginPageService = new LoginPageService();
-
+    private final MyJefitPage myJefitPage = new MyJefitPage();
+    private final LoginPageService loginPageService = new LoginPageService();
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     public void goMyRoutinePage() {
@@ -24,7 +25,7 @@ public class MyJefitPageService {
     public void sendStatus() {
         log.info("login");
         loginPageService.login();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(myJefitPage.getStatusField()));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(myJefitPage.getStatusField()));
         log.info("write status");
         myJefitPage.writeStatus()
                    .clickButtonPost()

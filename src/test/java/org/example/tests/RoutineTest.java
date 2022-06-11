@@ -26,8 +26,7 @@ public class RoutineTest extends BaseTest {
     public void createdNewMyRoutineTest() {
         myRoutinePageService.createNewRoutine();
         String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfRoutine();
-        String expectedNameOfCreatedRoutine = NAME_OF_CREATED_ROUTINE;
-        Assert.assertEquals(actualNameOfCreatedRoutine, expectedNameOfCreatedRoutine, "You didn't create new " +
+        Assert.assertEquals(actualNameOfCreatedRoutine, NAME_OF_CREATED_ROUTINE, "You didn't create new " +
                 "routine");
     }
 

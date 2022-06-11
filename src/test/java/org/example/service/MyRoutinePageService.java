@@ -10,19 +10,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 @Log4j2
 public class MyRoutinePageService {
 
 
-    private WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
     public static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
     public static final String URL_MY_ROUTINE_PAGE = "https://www.jefit.com/my-jefit/my-routines/routine-manager.php";
 
-    private MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
-    private RoutineManagerPage routineManagerPage = new RoutineManagerPage();
-    private MyJefitPageService myJefitPageService = new MyJefitPageService();
-    private LoginPageService loginPageService = new LoginPageService();
-    private MyJefitPage myJefitPage = new MyJefitPage();
+    private final MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
+    private final RoutineManagerPage routineManagerPage = new RoutineManagerPage();
+    private final MyJefitPageService myJefitPageService = new MyJefitPageService();
+    private final LoginPageService loginPageService = new LoginPageService();
+    private final MyJefitPage myJefitPage = new MyJefitPage();
 
 
     public String getNameOfRoutine() {
@@ -33,15 +35,15 @@ public class MyRoutinePageService {
     public void createNewRoutine() {
         log.info("login");
         loginPageService.login();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myJefitPage.getButtonMyRoutines()));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(myJefitPage.getButtonMyRoutines()));
         log.info("open 'My Routine Page'");
         myJefitPageService.goMyRoutinePage();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getTabRoutineManager()));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getTabRoutineManager()));
         log.info("create new account");
         myRoutinesPage.clickLinkRoutineManager();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getButtonCreateNewRoutine()));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getButtonCreateNewRoutine()));
         myRoutinesPage.clickButtonCreateNewAccount();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
         log.info("fill name of routine");
         routineManagerPage.getFieldRoutineName().sendKeys(NAME_OF_CREATED_ROUTINE);
         JavascriptExecutor js = ((JavascriptExecutor) driver);

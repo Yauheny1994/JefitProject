@@ -9,23 +9,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 @Log4j2
 
 public class ElitePageService extends LoginPageService{
 
-    private WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private final ElitePage elitePage = new ElitePage();
+    private final LoginPageService loginPageService = new LoginPageService();
+    private final MyJefitPage myJefitPage = new MyJefitPage();
 
-    private ElitePage elitePage = new ElitePage();
-    private LoginPageService loginPageService = new LoginPageService();
-    private MyJefitPage myJefitPage = new MyJefitPage();
-
-    public ElitePageService goToElitePage() {
+    public void goToElitePage() {
         log.info("Login");
         loginPageService.login();
         log.info("click button 'Get Elite'");
         myJefitPage.clickButtonGetElite();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(elitePage.getWelcomeMassageOnTheElitePage()));
-        return this;
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(elitePage.getWelcomeMassageOnTheElitePage()));
     }
 
     public String getWelcomeMassageOnElitePage() {

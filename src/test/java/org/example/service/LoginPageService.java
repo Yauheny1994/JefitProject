@@ -11,9 +11,9 @@ public class LoginPageService {
 
     public static final String URL_LOGIN_PAGE = "https://www.jefit.com/login/";
 
-    private User user = new User();
-    private LoginPage loginPage = new LoginPage();
-    private MyJefitPage myJefitPage = new MyJefitPage();
+    private final User user = new User();
+    private final LoginPage loginPage = new LoginPage();
+    private final MyJefitPage myJefitPage = new MyJefitPage();
 
     public void logInWithoutFillingUsername() {
         log.info("fill field password on 'Login' page and click button 'Login'");
