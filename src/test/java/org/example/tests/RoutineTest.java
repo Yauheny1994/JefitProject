@@ -10,9 +10,7 @@ import org.testng.annotations.Test;
 public class RoutineTest extends BaseTest {
 
     private static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
-    public static final String NAME_OF_DOWNLOADED_ROUTINE = "Copy of 3 Day - My Custom Routine";
-
-
+    private static final String NAME_OF_DOWNLOADED_ROUTINE = "Copy of 3 Day - My Custom Routine";
     private MyRoutinePageService myRoutinePageService;
     private RoutinesPageService routinesPageService;
 
@@ -25,7 +23,7 @@ public class RoutineTest extends BaseTest {
     @Test(priority = 1, retryAnalyzer = Retry.class)
     public void createdNewMyRoutineTest() {
         myRoutinePageService.createNewRoutine();
-        String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfRoutine();
+        String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfCreatedRoutine();
         Assert.assertEquals(actualNameOfCreatedRoutine, NAME_OF_CREATED_ROUTINE, "You didn't create new " +
                 "routine");
     }

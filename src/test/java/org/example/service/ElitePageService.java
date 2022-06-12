@@ -4,7 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.example.driver.DriverSingleton;
 import org.example.page.ElitePage;
 import org.example.page.MyJefitPage;
-import org.openqa.selenium.JavascriptExecutor;
+import org.example.utils.JavaScript;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +19,7 @@ public class ElitePageService extends LoginPageService{
     private final ElitePage elitePage = new ElitePage();
     private final LoginPageService loginPageService = new LoginPageService();
     private final MyJefitPage myJefitPage = new MyJefitPage();
+    private final JavaScript javaScript = new JavaScript();
 
     public void goToElitePage() {
         log.info("Login");
@@ -30,21 +31,20 @@ public class ElitePageService extends LoginPageService{
 
     public String getWelcomeMassageOnElitePage() {
         log.info("get text welcome message on 'Elite' page");
-        return elitePage.getWelcomeMassageOnTheElitePage().getText();
+        return elitePage.getWelcomeMassageOnElitePage();
     }
 
     public void getEliteForOneMonth() {
         log.info("scroll down on 'Elite' page");
-        JavascriptExecutor jsx = (JavascriptExecutor)driver;
-        jsx.executeScript("window.scrollBy(0,450)", "");
+        javaScript.scrollToTheMiddleOfThePage();
         log.info("click button 'Get Elite Now'");
         elitePage.clickButtonGetEliteNow();
         log.info("click button 'One month'");
-        elitePage.getButtonOneMonth().click();
+        elitePage.clickButtonOneMonth();
     }
 
     public String getNameOfPlan() {
         log.info("get 'Name of Plan'");
-        return elitePage.getFieldOfPlan().getText();
+        return elitePage.getNameOfPlan();
     }
 }

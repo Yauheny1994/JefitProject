@@ -9,7 +9,6 @@ public class EliteTest extends BaseTest{
 
     private static final String WELCOME_MESSAGE_ON_THE_ELITE_PAGE = "PLANS THAT SUIT YOU BEST";
     private static final String NAME_OF_ELITE_PLAN = "Plan - JEFIT Elite Monthly";
-
     private ElitePageService elitePageService;
 
     @BeforeClass

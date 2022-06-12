@@ -31,5 +31,15 @@ public class MyRoutinesPage extends BasePage {
         log.info("click button 'Create new account'");
         buttonCreateNewRoutine.click();
     }
+
+    public void clickButtonDownloadARoutine() {
+        log.info("click button 'Download a routine'");
+        buttonDownloadARoutine.click();
+    }
+
+    public String getNameOfDownloadedRoutine() {
+        log.info("get name of downloaded routine");
+        return nameOfDownloadedRoutine.getText();
+    }
 }
 

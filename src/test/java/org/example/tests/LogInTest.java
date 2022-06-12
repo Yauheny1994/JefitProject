@@ -1,7 +1,6 @@
 package org.example.tests;
 
 import org.example.service.LoginPageService;
-import org.example.utils.Retry;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

@@ -9,11 +9,20 @@ import org.example.page.MyJefitPage;
 
 public class LoginPageService {
 
-    public static final String URL_LOGIN_PAGE = "https://www.jefit.com/login/";
-
+    private static final String URL_LOGIN_PAGE = "https://www.jefit.com/login/";
     private final User user = new User();
     private final LoginPage loginPage = new LoginPage();
     private final MyJefitPage myJefitPage = new MyJefitPage();
+
+    public String getInvalidMessage() {
+        log.info("get 'Invalid Message'");
+        return loginPage.getInvalidMessage();
+    }
+
+    public String getButtonHome() {
+        log.info("get button 'Home' after successful login on 'My Jefit' page");
+        return myJefitPage.getTextHome();
+    }
 
     public void logInWithoutFillingUsername() {
         log.info("fill field password on 'Login' page and click button 'Login'");
@@ -46,15 +55,5 @@ public class LoginPageService {
                  .fillUserNameField(user.getUserName())
                  .fillPassword(user.getPassword())
                  .clickButtonLogin();
-    }
-
-    public String getInvalidMessage() {
-        log.info("get 'Invalid Message'");
-        return loginPage.getInvalidMessage().getText();
-    }
-
-    public String getButtonHome() {
-        log.info("get button 'Home' after successful login on 'My Jefit' page");
-        return myJefitPage.getButtonHome().getText();
     }
 }

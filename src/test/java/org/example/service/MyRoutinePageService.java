@@ -5,6 +5,7 @@ import org.example.driver.DriverSingleton;
 import org.example.page.MyJefitPage;
 import org.example.page.MyRoutinesPage;
 import org.example.page.RoutineManagerPage;
+import org.example.utils.JavaScript;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,20 +17,19 @@ import java.time.Duration;
 public class MyRoutinePageService {
 
 
+    private static final String URL_MY_ROUTINE_PAGE = "https://www.jefit.com/my-jefit/my-routines/routine-manager.php";
     private final WebDriver driver = DriverSingleton.getInstance().getDriver();
-    public static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
-    public static final String URL_MY_ROUTINE_PAGE = "https://www.jefit.com/my-jefit/my-routines/routine-manager.php";
-
     private final MyRoutinesPage myRoutinesPage = new MyRoutinesPage();
     private final RoutineManagerPage routineManagerPage = new RoutineManagerPage();
     private final MyJefitPageService myJefitPageService = new MyJefitPageService();
     private final LoginPageService loginPageService = new LoginPageService();
     private final MyJefitPage myJefitPage = new MyJefitPage();
+    private final JavaScript javaScript = new JavaScript();
 
 
-    public String getNameOfRoutine() {
+    public String getNameOfCreatedRoutine() {
         log.info("get Name of Routine");
-        return routineManagerPage.getNameOfCreatedRoutine().getText();
+        return routineManagerPage.getNameOfCreatedRoutine();
     }
 
     public void createNewRoutine() {
@@ -45,9 +45,8 @@ public class MyRoutinePageService {
         myRoutinesPage.clickButtonCreateNewAccount();
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
         log.info("fill name of routine");
-        routineManagerPage.getFieldRoutineName().sendKeys(NAME_OF_CREATED_ROUTINE);
-        JavascriptExecutor js = ((JavascriptExecutor) driver);
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        routineManagerPage.fillNameOFCreatedRoutine();
+        javaScript.scrollDownThePage();
         log.info("click button 'Save Routine'");
         routineManagerPage.clickButtonSaveRoutine();
     }
@@ -59,6 +58,6 @@ public class MyRoutinePageService {
 
     public String getNameOfDownloadedRoutine() {
         log.info("get name of downloaded routine");
-        return myRoutinesPage.getNameOfDownloadedRoutine().getText();
+        return myRoutinesPage.getNameOfDownloadedRoutine();
     }
 }

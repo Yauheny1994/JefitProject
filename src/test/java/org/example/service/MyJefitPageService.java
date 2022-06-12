@@ -15,7 +15,7 @@ public class MyJefitPageService {
 
     private final MyJefitPage myJefitPage = new MyJefitPage();
     private final LoginPageService loginPageService = new LoginPageService();
-    protected WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
 
     public void goMyRoutinePage() {
         log.info("open 'Routine' page");
@@ -34,18 +34,18 @@ public class MyJefitPageService {
 
     public String getStatus() {
         log.info("get 'Status'");
-        return myJefitPage.getStatus().getText();
+        return myJefitPage.getStatusText();
     }
 
     public void goToPageLatestBodyStats() {
         log.info("login");
         loginPageService.login();
         log.info("click button 'Body Stats'");
-        myJefitPage.getButtonBodyStats().click();
+        myJefitPage.clickButtonBodyStats();
     }
 
     public String getLinkOnThePageLatestBodyStats() {
         log.info("get name 'Body Stats'");
-        return myJefitPage.getLinkLatestBodyStats().getText();
+        return myJefitPage.getTextLinkOnThePageLatestBodyStats();
     }
 }

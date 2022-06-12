@@ -8,10 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class BodyStatsTest extends BaseTest {
 
-    public static final String NAME_OF_LINK = "Latest Body Stats";
-
+    private static final String NAME_OF_LINK = "Latest Body Stats";
     private MyJefitPageService myJefitPageService;
     private MyJefitPage myJefitPage;
 
@@ -24,7 +25,7 @@ public class BodyStatsTest extends BaseTest {
     @Test
     public void goToPageBodyStats() {
         myJefitPageService.goToPageLatestBodyStats();
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(myJefitPage.getLinkLatestBodyStats()));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(myJefitPage.getLinkLatestBodyStats()));
         String actualNameOfLink = myJefitPageService.getLinkOnThePageLatestBodyStats();
         String expectedNameOfLink = NAME_OF_LINK;
         Assert.assertEquals(actualNameOfLink, expectedNameOfLink);

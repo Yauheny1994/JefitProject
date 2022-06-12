@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 @Log4j2
 public class RoutineManagerPage extends BasePage {
 
+    private static final String NAME_OF_CREATED_ROUTINE = "FirstRoutine";
+
     @FindBy(xpath = "//input[@name='rpname']")
     private WebElement fieldRoutineName;
 
@@ -18,9 +20,18 @@ public class RoutineManagerPage extends BasePage {
     @FindBy(xpath = "//strong[contains(text(),'FirstRoutine')]")
     private WebElement nameOfCreatedRoutine;
 
+    public void fillNameOFCreatedRoutine() {
+        fieldRoutineName.sendKeys(NAME_OF_CREATED_ROUTINE);
+    }
+
     public void clickButtonSaveRoutine() {
         log.info("click button 'Save Routine'");
         buttonSaveRoutine.click();
+    }
+
+    public String getNameOfCreatedRoutine() {
+        log.info("get Name of Routine");
+        return nameOfCreatedRoutine.getText();
     }
 }
 

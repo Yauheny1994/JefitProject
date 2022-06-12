@@ -59,6 +59,11 @@ public class LoginPage extends BasePage {
         log.info("click button 'Login'");
         logInButton.click();
     }
+
+    public String getInvalidMessage() {
+        log.info("get 'Invalid Message'");
+        return invalidMessage.getText();
+    }
 }
 
 
