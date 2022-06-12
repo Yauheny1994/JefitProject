@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 public class ElitePage extends BasePage {
 
     @FindBy(xpath = "//span[contains(text(),'Plans that suit you best')]")
-    private WebElement welcomeMassageOnTheElitePage;
+    private WebElement welcomeMessageOnTheElitePage;
 
     @FindBy(xpath = "//a[contains(text(),'Get Elite now')]")
     private WebElement buttonGetEliteNow;
@@ -22,9 +22,9 @@ public class ElitePage extends BasePage {
     private WebElement fieldOfPlan;
 
 
-    public String getWelcomeMassageOnElitePage() {
+    public String getWelcomeMessageOnElitePage() {
         log.info("get text welcome message on 'Elite' page");
-        return welcomeMassageOnTheElitePage.getText();
+        return welcomeMessageOnTheElitePage.getText();
     }
 
     public void clickButtonGetEliteNow() {

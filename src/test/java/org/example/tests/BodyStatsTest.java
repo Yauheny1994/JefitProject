@@ -2,19 +2,20 @@ package org.example.tests;
 
 import org.example.page.MyJefitPage;
 import org.example.service.MyJefitPageService;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.example.utils.Waiter;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+
 
 public class BodyStatsTest extends BaseTest {
 
     private static final String NAME_OF_LINK = "Latest Body Stats";
     private MyJefitPageService myJefitPageService;
     private MyJefitPage myJefitPage;
+    private final Waiter waiter = new Waiter();
 
     @BeforeClass
     public void setup() {
@@ -25,7 +26,7 @@ public class BodyStatsTest extends BaseTest {
     @Test
     public void goToPageBodyStats() {
         myJefitPageService.goToPageLatestBodyStats();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(myJefitPage.getLinkLatestBodyStats()));
+        waiter.waitVisibilityOf(myJefitPage.getLinkLatestBodyStats());
         String actualNameOfLink = myJefitPageService.getLinkOnThePageLatestBodyStats();
         String expectedNameOfLink = NAME_OF_LINK;
         Assert.assertEquals(actualNameOfLink, expectedNameOfLink);

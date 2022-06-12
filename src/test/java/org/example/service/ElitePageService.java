@@ -1,37 +1,32 @@
 package org.example.service;
 
 import lombok.extern.log4j.Log4j2;
-import org.example.driver.DriverSingleton;
 import org.example.page.ElitePage;
 import org.example.page.MyJefitPage;
 import org.example.utils.JavaScript;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import org.example.utils.Waiter;
 
 @Log4j2
 
 public class ElitePageService extends LoginPageService{
 
-    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
     private final ElitePage elitePage = new ElitePage();
     private final LoginPageService loginPageService = new LoginPageService();
     private final MyJefitPage myJefitPage = new MyJefitPage();
     private final JavaScript javaScript = new JavaScript();
+    private final Waiter waiter = new Waiter();
 
     public void goToElitePage() {
         log.info("Login");
         loginPageService.login();
         log.info("click button 'Get Elite'");
         myJefitPage.clickButtonGetElite();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(elitePage.getWelcomeMassageOnTheElitePage()));
+        waiter.waitVisibilityOf(elitePage.getWelcomeMessageOnTheElitePage());
     }
 
     public String getWelcomeMassageOnElitePage() {
         log.info("get text welcome message on 'Elite' page");
-        return elitePage.getWelcomeMassageOnElitePage();
+        return elitePage.getWelcomeMessageOnElitePage();
     }
 
     public void getEliteForOneMonth() {

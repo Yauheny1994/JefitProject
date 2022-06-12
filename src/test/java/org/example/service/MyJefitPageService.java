@@ -1,13 +1,9 @@
 package org.example.service;
 
 import lombok.extern.log4j.Log4j2;
-import org.example.driver.DriverSingleton;
 import org.example.page.MyJefitPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.example.utils.Waiter;
 
-import java.time.Duration;
 
 @Log4j2
 
@@ -15,7 +11,7 @@ public class MyJefitPageService {
 
     private final MyJefitPage myJefitPage = new MyJefitPage();
     private final LoginPageService loginPageService = new LoginPageService();
-    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
+    private final Waiter waiter = new Waiter();
 
     public void goMyRoutinePage() {
         log.info("open 'Routine' page");
@@ -25,7 +21,8 @@ public class MyJefitPageService {
     public void sendStatus() {
         log.info("login");
         loginPageService.login();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(myJefitPage.getStatusField()));
+        log.info("wait element status field");
+        waiter.waitVisibilityOf(myJefitPage.getStatusField());
         log.info("write status");
         myJefitPage.writeStatus()
                    .clickButtonPost()

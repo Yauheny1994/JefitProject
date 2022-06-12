@@ -6,12 +6,9 @@ import org.example.page.MyJefitPage;
 import org.example.page.MyRoutinesPage;
 import org.example.page.RoutineManagerPage;
 import org.example.utils.JavaScript;
-import org.openqa.selenium.JavascriptExecutor;
+import org.example.utils.Waiter;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
 @Log4j2
 public class MyRoutinePageService {
@@ -25,6 +22,7 @@ public class MyRoutinePageService {
     private final LoginPageService loginPageService = new LoginPageService();
     private final MyJefitPage myJefitPage = new MyJefitPage();
     private final JavaScript javaScript = new JavaScript();
+    private final Waiter waiter = new Waiter();
 
 
     public String getNameOfCreatedRoutine() {
@@ -35,15 +33,18 @@ public class MyRoutinePageService {
     public void createNewRoutine() {
         log.info("login");
         loginPageService.login();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(myJefitPage.getButtonMyRoutines()));
+        log.info("wait button my routine");
+        waiter.waitVisibilityOf(myJefitPage.getButtonMyRoutines());
         log.info("open 'My Routine Page'");
         myJefitPageService.goMyRoutinePage();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getTabRoutineManager()));
+        waiter.waitVisibilityOf(myRoutinesPage.getTabRoutineManager());
         log.info("create new account");
         myRoutinesPage.clickLinkRoutineManager();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(myRoutinesPage.getButtonCreateNewRoutine()));
+        log.info("wait button create new routine");
+        waiter.waitVisibilityOf(myRoutinesPage.getButtonCreateNewRoutine());
         myRoutinesPage.clickButtonCreateNewAccount();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(routineManagerPage.getFieldRoutineName()));
+        log.info("wait field routine name");
+        waiter.waitVisibilityOf(routineManagerPage.getFieldRoutineName());
         log.info("fill name of routine");
         routineManagerPage.fillNameOFCreatedRoutine();
         javaScript.scrollDownThePage();

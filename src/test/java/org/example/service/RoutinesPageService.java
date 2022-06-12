@@ -1,17 +1,12 @@
 package org.example.service;
 
 import lombok.extern.log4j.Log4j2;
-import org.example.driver.DriverSingleton;
 import org.example.page.CopyOfThreeDayPage;
 import org.example.page.MyRoutinesPage;
 import org.example.page.RoutinesPage;
 import org.example.utils.JavaScript;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.example.utils.Waiter;
 
-import java.time.Duration;
 
 @Log4j2
 public class RoutinesPageService {
@@ -20,8 +15,8 @@ public class RoutinesPageService {
     private final RoutinesPage routinesPage = new RoutinesPage();
     private final CopyOfThreeDayPage copyOfThreeDayPage = new CopyOfThreeDayPage();
     private final MyRoutinePageService myRoutinePageService = new MyRoutinePageService();
-    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
     private final JavaScript javaScript = new JavaScript();
+    private final Waiter waiter = new Waiter();
 
 
     public void addNewWorkoutInMyRoutine() {
@@ -31,7 +26,8 @@ public class RoutinesPageService {
         javaScript.scrollDownThePage();
         log.info("click 'Name of plan'");
         routinesPage.clickNameOfPlan();
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(copyOfThreeDayPage.getButtonSaveToMyWorkout()));
+        log.info("wait button save to my workout");
+        waiter.waitVisibilityOf(copyOfThreeDayPage.getButtonSaveToMyWorkout());
         log.info("scroll to the element");
         javaScript.scrollToTheElementOnRoutinePage();
         log.info("click button 'Save to My Workout'");
