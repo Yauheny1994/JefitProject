@@ -4,7 +4,7 @@ pipeline {
    tools {
       // Install the Maven version configured as "MAVEN 3.8.5" and add it to the path.
       maven "MAVEN 3.8.5"
-      jdk "java"
+      jdk "java 11.0.12"
    }
     triggers {
         cron('0 8 * * *')
