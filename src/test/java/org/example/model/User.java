@@ -9,6 +9,6 @@ public class User {
 
     private final String password = "Makarik_ma1@mail.ru";
 
-//    private String userName = System.getProperty("email");
+//    private String userName = System.getProperty("userName");
 //    private String password =System.getProperty("password");
 }
