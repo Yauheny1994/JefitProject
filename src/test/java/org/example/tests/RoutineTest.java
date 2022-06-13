@@ -1,6 +1,5 @@
 package org.example.tests;
 
-import io.qameta.allure.Description;
 import org.example.service.MyRoutinePageService;
 import org.example.service.RoutinesPageService;
 import org.example.utils.Retry;
@@ -21,8 +20,7 @@ public class RoutineTest extends BaseTest {
         routinesPageService = new RoutinesPageService();
     }
 
-    @Test(description = "createdNewMyRoutineTest", priority = 1, retryAnalyzer = Retry.class)
-    @Description("create my routine")
+    @Test(priority = 1, retryAnalyzer = Retry.class)
     public void createdNewMyRoutineTest() {
         myRoutinePageService.createNewRoutine();
         String actualNameOfCreatedRoutine = myRoutinePageService.getNameOfCreatedRoutine();
@@ -30,13 +28,11 @@ public class RoutineTest extends BaseTest {
                 "routine");
     }
 
-    @Test(description = "downloadNewMyRoutineTest",priority = 2)
-    @Description("download new routine")
+    @Test(priority = 2)
     public void downloadNewMyRoutineTest() {
         routinesPageService.addNewWorkoutInMyRoutine();
-        String actualNameOfDownloadedRoutine = NAME_OF_DOWNLOADED_ROUTINE;
         String expectedNameOfDownloadedRoutine = myRoutinePageService.getNameOfDownloadedRoutine();
-        Assert.assertEquals(actualNameOfDownloadedRoutine, expectedNameOfDownloadedRoutine, "You didn't download" +
+        Assert.assertEquals(NAME_OF_DOWNLOADED_ROUTINE, expectedNameOfDownloadedRoutine, "You didn't download" +
                 "routine");
     }
 }

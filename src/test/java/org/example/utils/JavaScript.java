@@ -8,6 +8,7 @@ public class JavaScript {
 
     private final WebDriver driver = DriverSingleton.getInstance().getDriver();
 
+
     public void scrollToTheMiddleOfThePage() {
         JavascriptExecutor jsx = (JavascriptExecutor)driver;
         jsx.executeScript("window.scrollBy(0,450)", "");

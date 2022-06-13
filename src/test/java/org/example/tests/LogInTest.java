@@ -1,6 +1,5 @@
 package org.example.tests;
 
-import io.qameta.allure.Description;
 import org.example.service.LoginPageService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -21,8 +20,7 @@ public class LogInTest extends BaseTest {
         loginPageService = new LoginPageService();
     }
 
-    @Test(description = "logInWithOutFillingFieldUsernameTest")
-    @Description("login without username")
+    @Test(priority = 1)
     public void logInWithOutFillingFieldUsernameTest() {
         loginPageService.logInWithoutFillingUsername();
         actualMessage = loginPageService.getInvalidMessage();
@@ -30,9 +28,7 @@ public class LogInTest extends BaseTest {
         Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 
-
-    @Test(description = "logInWithoutFillingAllTheFieldsTest")
-    @Description("login without filling all fields")
+    @Test(priority = 2)
     public void logInWithoutFillingAllTheFieldsTest() {
         loginPageService.logInWithoutFillingAllTheFields();
         actualMessage = loginPageService.getInvalidMessage();
@@ -40,8 +36,7 @@ public class LogInTest extends BaseTest {
         Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 
-    @Test(description = "logInWithoutFillingFieldPasswordTest")
-    @Description("login without password")
+    @Test(priority = 3)
     public void logInWithoutFillingFieldPasswordTest() {
         loginPageService.logInWithoutFillingPassword();
         actualMessage = loginPageService.getInvalidMessage();
@@ -49,8 +44,7 @@ public class LogInTest extends BaseTest {
         Assert.assertEquals(actualMessage, expectedResult, "You didn't login");
     }
 
-    @Test(description = "loginSuccessfulTest")
-    @Description("successful login")
+    @Test(priority = 4)
     public void loginSuccessfulTest() {
         loginPageService.login();
         actualMessage = loginPageService.getButtonHome();

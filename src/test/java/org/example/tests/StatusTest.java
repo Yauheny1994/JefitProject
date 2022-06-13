@@ -16,12 +16,10 @@ public class StatusTest extends BaseTest {
         myJefitPageService = new MyJefitPageService();
     }
 
-    @Test(description = "setStatusTest")
-    @Description("set status and checking it")
+    @Test
     public void setStatusTest() {
         myJefitPageService.sendStatus();
         String actualStatus = myJefitPageService.getStatus();
-        String expectedStatus = STATUS;
-        Assert.assertEquals(actualStatus, expectedStatus, "You didn't send your status");
+        Assert.assertEquals(actualStatus, STATUS, "You didn't send your status");
     }
 }
