@@ -16,6 +16,7 @@ public class CopyOfThreeDayPage extends BasePage{
     @Step("Click button save to My Workout")
     public void clickButtonSaveToMyWorkout() {
         log.info("Click button 'Save To My Workout' on 'Copy Of Three Day' page");
+        waitElementToBeClickable(buttonSaveToMyWorkout);
         buttonSaveToMyWorkout.click();
     }
 }

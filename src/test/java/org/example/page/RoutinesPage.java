@@ -14,6 +14,7 @@ public class RoutinesPage extends BasePage {
     @Step("Click 'Name of plan'")
     public void clickNameOfPlan() {
         log.info("click 'Name of plan'");
+        waitElementToBeClickable(nameOfPlan);
         nameOfPlan.click();
     }
 }

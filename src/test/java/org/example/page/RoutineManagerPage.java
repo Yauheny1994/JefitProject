@@ -30,6 +30,7 @@ public class RoutineManagerPage extends BasePage {
     @Step("Click button 'Save Routine")
     public void clickButtonSaveRoutine() {
         log.info("click button 'Save Routine'");
+        waitElementToBeClickable(buttonSaveRoutine);
         buttonSaveRoutine.click();
     }
 

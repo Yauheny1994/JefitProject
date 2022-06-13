@@ -7,7 +7,6 @@ import org.example.page.MyJefitPage;
 import org.example.page.MyRoutinesPage;
 import org.example.page.RoutineManagerPage;
 import org.example.utils.JavaScript;
-import org.example.utils.Waiter;
 import org.openqa.selenium.WebDriver;
 
 
@@ -23,7 +22,7 @@ public class MyRoutinePageService {
     private final LoginPageService loginPageService = new LoginPageService();
     private final MyJefitPage myJefitPage = new MyJefitPage();
     private final JavaScript javaScript = new JavaScript();
-    private final Waiter waiter = new Waiter();
+//    private final Waiter waiter = new Waiter();
 
 
     @Step("Get Name of Routine")
@@ -37,17 +36,17 @@ public class MyRoutinePageService {
         log.info("login");
         loginPageService.login();
         log.info("wait button my routine");
-        waiter.waitVisibilityOf(myJefitPage.getButtonMyRoutines());
+//        waiter.waitVisibilityOf(myJefitPage.getButtonMyRoutines());
         log.info("open 'My Routine Page'");
         myJefitPageService.openMyRoutinePage();
-        waiter.waitVisibilityOf(myRoutinesPage.getTabRoutineManager());
+//        waiter.waitVisibilityOf(myRoutinesPage.getTabRoutineManager());
         log.info("create new account");
         myRoutinesPage.clickLinkRoutineManager();
         log.info("wait button create new routine");
-        waiter.waitVisibilityOf(myRoutinesPage.getButtonCreateNewRoutine());
+//        waiter.waitVisibilityOf(myRoutinesPage.getButtonCreateNewRoutine());
         myRoutinesPage.clickButtonCreateNewAccount();
         log.info("wait field routine name");
-        waiter.waitVisibilityOf(routineManagerPage.getFieldRoutineName());
+//        waiter.waitVisibilityOf(routineManagerPage.getFieldRoutineName());
         log.info("fill name of routine");
         routineManagerPage.fillNameOFCreatedRoutine();
         javaScript.scrollDownThePage();

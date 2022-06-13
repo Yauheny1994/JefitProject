@@ -41,12 +41,14 @@ public class MyJefitPage extends BasePage {
     @Step("Click link 'My routines Page' on 'My Jefit' page")
     public void openMyRoutinesPage() {
         log.info("click link 'My routines Page' on 'My Jefit' page");
+        waitElementToBeClickable(buttonMyRoutines);
         buttonMyRoutines.click();
     }
 
     @Step("Write status in field 'STATUS'")
     public MyJefitPage writeStatus() {
         log.info("write status in field 'STATUS'");
+        waitVisibilityOf(statusField);
         statusField.sendKeys(STATUS);
         return this;
     }
@@ -54,6 +56,7 @@ public class MyJefitPage extends BasePage {
     @Step("Click button 'Post'")
     public MyJefitPage clickButtonPost() {
         log.info("click button 'Post'");
+        waitElementToBeClickable(buttonPost);
         buttonPost.click();
         return this;
     }
@@ -67,30 +70,35 @@ public class MyJefitPage extends BasePage {
     @Step("Click button 'Get Elite'")
     public void clickButtonGetElite() {
         log.info("click button 'Get Elite'");
+        waitElementToBeClickable(buttonGetElite);
         buttonGetElite.click();
     }
 
     @Step("Click button 'Body Stats'")
     public void clickButtonBodyStats() {
         log.info("click button 'Body Stats'");
+        waitElementToBeClickable(buttonBodyStats);
         buttonBodyStats.click();
     }
 
     @Step("Get button 'Home' after successful login on 'My Jefit' page")
     public String getTextHome() {
         log.info("get button 'Home' after successful login on 'My Jefit' page");
+        waitVisibilityOf(buttonHome);
         return buttonHome.getText();
     }
 
     @Step("Get 'Status'")
     public String getStatusText() {
         log.info("get 'Status'");
+        waitVisibilityOf(status);
         return status.getText();
     }
 
     @Step("Get name 'Body Stats'")
     public String getTextLinkOnThePageLatestBodyStats() {
         log.info("get name 'Body Stats'");
+        waitVisibilityOf(linkLatestBodyStats);
         return linkLatestBodyStats.getText();
     }
 }

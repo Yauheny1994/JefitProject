@@ -26,18 +26,21 @@ public class ElitePage extends BasePage {
     @Step("Get welcome message om Elite page")
     public String getWelcomeMessageOnElitePage() {
         log.info("get text welcome message on 'Elite' page");
+        waitVisibilityOf(welcomeMessageOnTheElitePage);
         return welcomeMessageOnTheElitePage.getText();
     }
 
     @Step("Click button Get Elite Now")
     public void clickButtonGetEliteNow() {
         log.info("Click button 'Get Elite Now' on 'Elite' page");
+        waitElementToBeClickable(buttonGetEliteNow);
         buttonGetEliteNow.click();
     }
 
     @Step("Click button one month")
     public void clickButtonOneMonth() {
         log.info("Click button 'One Month' on 'Elite' page");
+        waitElementToBeClickable(buttonOneMonth);
         buttonOneMonth.click();
     }
 

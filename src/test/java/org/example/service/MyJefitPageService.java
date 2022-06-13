@@ -3,7 +3,6 @@ package org.example.service;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.example.page.MyJefitPage;
-import org.example.utils.Waiter;
 
 
 @Log4j2
@@ -12,7 +11,6 @@ public class MyJefitPageService {
 
     private final MyJefitPage myJefitPage = new MyJefitPage();
     private final LoginPageService loginPageService = new LoginPageService();
-    private final Waiter waiter = new Waiter();
 
     @Step("Open 'Routine' page")
     public void openMyRoutinePage() {
@@ -24,8 +22,6 @@ public class MyJefitPageService {
     public void sendStatus() {
         log.info("login");
         loginPageService.login();
-        log.info("wait element status field");
-        waiter.waitVisibilityOf(myJefitPage.getStatusField());
         log.info("write status");
         myJefitPage.writeStatus()
                    .clickButtonPost()
