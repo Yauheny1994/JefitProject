@@ -16,7 +16,7 @@ triggers {
         stage('Testing') {
             steps {
                 // Get some code from a GitHub repository
-               git branch: "${params.BRANCH}", url: 'https://github.com/Ilya-bychyk/Diplom.git'
+               git branch: "${params.BRANCH}", url: 'https://github.com/Yauheny1994/JefitProject.git'
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/testng-smoke.xml clean test"
