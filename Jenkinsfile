@@ -19,7 +19,7 @@ triggers {
                git branch: "${params.BRANCH}", url: 'https://github.com/Yauheny1994/JefitProject.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/testng-smoke.xml clean test"
+                sh "mvn -Dmaven.test.failure.ignore=true -DuserName=${userName} -Dpassword=${password} -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/testng-smoke.xml clean test"
 
             }
 
