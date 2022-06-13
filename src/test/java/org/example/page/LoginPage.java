@@ -1,5 +1,6 @@
 package org.example.page;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
@@ -21,24 +22,28 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@id ='invalidpassworderrormessage']")
     private WebElement invalidMessage;
 
+    @Step("Open 'Login' page")
     public LoginPage openPage(String url) {
         log.info("open 'Login' page");
         driver.get(url);
         return this;
     }
 
+    @Step("Clear field User Name")
     public LoginPage clearFieldUserName() {
         log.info("clear field User Name");
         userNameField.clear();
         return this;
     }
 
+    @Step("Clear field Password")
     public LoginPage clearFieldPassword() {
         log.info("clear field Password");
         passwordField.clear();
         return this;
     }
 
+    @Step("Fill User Name field")
     public LoginPage fillUserNameField(String username) {
         log.info("clear field User Name");
         userNameField.clear();
@@ -47,6 +52,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Fill password")
     public LoginPage fillPassword(String password) {
         log.info("clear field Password");
         passwordField.clear();
@@ -55,11 +61,13 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Click button 'Login'")
     public void clickButtonLogin() {
         log.info("click button 'Login'");
         logInButton.click();
     }
 
+    @Step("Get 'Invalid Message'")
     public String getInvalidMessage() {
         log.info("get 'Invalid Message'");
         return invalidMessage.getText();

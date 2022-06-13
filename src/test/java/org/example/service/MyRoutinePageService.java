@@ -1,5 +1,6 @@
 package org.example.service;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.example.driver.DriverSingleton;
 import org.example.page.MyJefitPage;
@@ -25,18 +26,20 @@ public class MyRoutinePageService {
     private final Waiter waiter = new Waiter();
 
 
+    @Step("Get Name of Routine")
     public String getNameOfCreatedRoutine() {
         log.info("get Name of Routine");
         return routineManagerPage.getNameOfCreatedRoutine();
     }
 
+    @Step("Create new Routine")
     public void createNewRoutine() {
         log.info("login");
         loginPageService.login();
         log.info("wait button my routine");
         waiter.waitVisibilityOf(myJefitPage.getButtonMyRoutines());
         log.info("open 'My Routine Page'");
-        myJefitPageService.goMyRoutinePage();
+        myJefitPageService.openMyRoutinePage();
         waiter.waitVisibilityOf(myRoutinesPage.getTabRoutineManager());
         log.info("create new account");
         myRoutinesPage.clickLinkRoutineManager();
@@ -52,11 +55,13 @@ public class MyRoutinePageService {
         routineManagerPage.clickButtonSaveRoutine();
     }
 
+    @Step("Open 'My routine' page'")
     public void openMyRoutinePage() {
-        log.info("open 'My routine' page");
+        log.info("open 'My routine' page'");
         driver.get(URL_MY_ROUTINE_PAGE);
     }
 
+    @Step("Get name of downloaded routine")
     public String getNameOfDownloadedRoutine() {
         log.info("get name of downloaded routine");
         return myRoutinesPage.getNameOfDownloadedRoutine();

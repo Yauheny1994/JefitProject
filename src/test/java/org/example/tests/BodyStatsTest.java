@@ -25,7 +25,7 @@ public class BodyStatsTest extends BaseTest {
 
     @Test
     public void goToPageBodyStats() {
-        myJefitPageService.goToPageLatestBodyStats();
+        myJefitPageService.openPageLatestBodyStats();
         waiter.waitVisibilityOf(myJefitPage.getLinkLatestBodyStats());
         String actualNameOfLink = myJefitPageService.getLinkOnThePageLatestBodyStats();
         String expectedNameOfLink = NAME_OF_LINK;

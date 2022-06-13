@@ -1,5 +1,6 @@
 package org.example.service;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.example.page.CopyOfThreeDayPage;
 import org.example.page.MyRoutinesPage;
@@ -19,6 +20,7 @@ public class RoutinesPageService {
     private final Waiter waiter = new Waiter();
 
 
+    @Step("Add new workout in my routine")
     public void addNewWorkoutInMyRoutine() {
         log.info("click button 'Download Routine'");
         myRoutinesPage.clickButtonDownloadARoutine();

@@ -1,5 +1,6 @@
 package org.example.page;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
@@ -22,21 +23,25 @@ public class ElitePage extends BasePage {
     private WebElement fieldOfPlan;
 
 
+    @Step("Get welcome message om Elite page")
     public String getWelcomeMessageOnElitePage() {
         log.info("get text welcome message on 'Elite' page");
         return welcomeMessageOnTheElitePage.getText();
     }
 
+    @Step("Click button Get Elite Now")
     public void clickButtonGetEliteNow() {
         log.info("Click button 'Get Elite Now' on 'Elite' page");
         buttonGetEliteNow.click();
     }
 
+    @Step("Click button one month")
     public void clickButtonOneMonth() {
         log.info("Click button 'One Month' on 'Elite' page");
         buttonOneMonth.click();
     }
 
+    @Step("Get name of plan")
     public String getNameOfPlan() {
         log.info("get 'Name of Plan'");
         return fieldOfPlan.getText();

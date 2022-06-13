@@ -1,5 +1,6 @@
 package org.example.page;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
@@ -37,48 +38,57 @@ public class MyJefitPage extends BasePage {
     private WebElement linkLatestBodyStats;
 
 
-    public void goMyRoutinesPage() {
+    @Step("Click link 'My routines Page' on 'My Jefit' page")
+    public void openMyRoutinesPage() {
         log.info("click link 'My routines Page' on 'My Jefit' page");
         buttonMyRoutines.click();
     }
 
+    @Step("Write status in field 'STATUS'")
     public MyJefitPage writeStatus() {
         log.info("write status in field 'STATUS'");
         statusField.sendKeys(STATUS);
         return this;
     }
 
+    @Step("Click button 'Post'")
     public MyJefitPage clickButtonPost() {
         log.info("click button 'Post'");
         buttonPost.click();
         return this;
     }
 
+    @Step("Open 'My Jefit' page")
     public void refreshPage() {
         log.info("open 'My Jefit' page");
         driver.get(URL_MY_JEFIT_PAGE);
     }
 
+    @Step("Click button 'Get Elite'")
     public void clickButtonGetElite() {
         log.info("click button 'Get Elite'");
         buttonGetElite.click();
     }
 
+    @Step("Click button 'Body Stats'")
     public void clickButtonBodyStats() {
-        log.info("click button 'button Body Stats'");
+        log.info("click button 'Body Stats'");
         buttonBodyStats.click();
     }
 
+    @Step("Get button 'Home' after successful login on 'My Jefit' page")
     public String getTextHome() {
         log.info("get button 'Home' after successful login on 'My Jefit' page");
         return buttonHome.getText();
     }
 
+    @Step("Get 'Status'")
     public String getStatusText() {
         log.info("get 'Status'");
         return status.getText();
     }
 
+    @Step("Get name 'Body Stats'")
     public String getTextLinkOnThePageLatestBodyStats() {
         log.info("get name 'Body Stats'");
         return linkLatestBodyStats.getText();

@@ -1,5 +1,6 @@
 package org.example.page;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
@@ -21,22 +22,27 @@ public class MyRoutinesPage extends BasePage {
     @FindBy(xpath = "//strong[contains(text(),'My Custom Routine')]")
     private WebElement nameOfDownloadedRoutine;
 
+
+    @Step("Click 'Routine Manage' link")
     public MyRoutinesPage clickLinkRoutineManager() {
         log.info("click 'Routine Manage' link");
         tabRoutineManager.click();
         return this;
     }
 
+    @Step("Click button 'Create new account'")
     public void clickButtonCreateNewAccount() {
         log.info("click button 'Create new account'");
         buttonCreateNewRoutine.click();
     }
 
+    @Step("Click button 'Download a routine'")
     public void clickButtonDownloadARoutine() {
         log.info("click button 'Download a routine'");
         buttonDownloadARoutine.click();
     }
 
+    @Step("Get name of downloaded routine")
     public String getNameOfDownloadedRoutine() {
         log.info("get name of downloaded routine");
         return nameOfDownloadedRoutine.getText();

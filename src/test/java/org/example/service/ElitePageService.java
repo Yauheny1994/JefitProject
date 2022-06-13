@@ -1,5 +1,6 @@
 package org.example.service;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.example.page.ElitePage;
 import org.example.page.MyJefitPage;
@@ -16,7 +17,8 @@ public class ElitePageService extends LoginPageService{
     private final JavaScript javaScript = new JavaScript();
     private final Waiter waiter = new Waiter();
 
-    public void goToElitePage() {
+    @Step("Open to Elite page")
+    public void openToElitePage() {
         log.info("Login");
         loginPageService.login();
         log.info("click button 'Get Elite'");
@@ -24,11 +26,13 @@ public class ElitePageService extends LoginPageService{
         waiter.waitVisibilityOf(elitePage.getWelcomeMessageOnTheElitePage());
     }
 
+    @Step("Get text welcome message on 'Elite' page")
     public String getWelcomeMassageOnElitePage() {
         log.info("get text welcome message on 'Elite' page");
         return elitePage.getWelcomeMessageOnElitePage();
     }
 
+    @Step("Get elite for one month")
     public void getEliteForOneMonth() {
         log.info("scroll down on 'Elite' page");
         javaScript.scrollToTheMiddleOfThePage();
@@ -38,6 +42,7 @@ public class ElitePageService extends LoginPageService{
         elitePage.clickButtonOneMonth();
     }
 
+    @Step("Get 'Name of Plan'")
     public String getNameOfPlan() {
         log.info("get 'Name of Plan'");
         return elitePage.getNameOfPlan();
