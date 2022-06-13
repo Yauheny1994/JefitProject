@@ -6,24 +6,24 @@
             <class name="org.example.tests.LogInTest" />
         </classes>
     </test>
-<!--    <test name="RoutinesTest" >-->
-<!--        <classes>-->
-<!--            <class name="org.example.tests.RoutineTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="StatusTest" >-->
-<!--        <classes>-->
-<!--            <class name="org.example.tests.StatusTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="EliteTest" >-->
-<!--        <classes>-->
-<!--            <class name="org.example.tests.EliteTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--        <test name="BodyStatsTest" >-->
-<!--            <classes>-->
-<!--                <class name="org.example.tests.BodyStatsTest" />-->
-<!--            </classes>-->
-<!--        </test>-->
+    <test name="RoutinesTest" >
+        <classes>
+            <class name="org.example.tests.RoutineTest" />
+        </classes>
+    </test>
+    <test name="StatusTest" >
+        <classes>
+            <class name="org.example.tests.StatusTest" />
+        </classes>
+    </test>
+    <test name="EliteTest" >
+        <classes>
+            <class name="org.example.tests.EliteTest" />
+        </classes>
+    </test>
+        <test name="BodyStatsTest" >
+            <classes>
+                <class name="org.example.tests.BodyStatsTest" />
+            </classes>
+        </test>
 </suite>

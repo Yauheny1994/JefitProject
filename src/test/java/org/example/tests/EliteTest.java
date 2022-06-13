@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.example.service.ElitePageService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -16,15 +17,17 @@ public class EliteTest extends BaseTest{
         elitePageService = new ElitePageService();
     }
 
-    @Test
-    public void goToElitePage() {
-        elitePageService.openToElitePage();
+    @Test(description = "openElitePage")
+    @Description("Open page Elite Page and checking it")
+    public void openElitePage() {
+        elitePageService.openElitePage();
         String actualWelcomeMessageOnTheElitePage = elitePageService.getWelcomeMassageOnElitePage();
         Assert.assertEquals(actualWelcomeMessageOnTheElitePage, WELCOME_MESSAGE_ON_THE_ELITE_PAGE, "You aren't " +
                 "on the Elite Page");
     }
 
-    @Test
+    @Test(description = "takeEliteOneMonthTest")
+    @Description("Take Elite One Month")
     public void takeEliteOneMonthTest() {
         elitePageService.getEliteForOneMonth();
         String actualNameOfPlan = elitePageService.getNameOfPlan();

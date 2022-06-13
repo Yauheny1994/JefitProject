@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.example.service.MyJefitPageService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -15,7 +16,8 @@ public class StatusTest extends BaseTest {
         myJefitPageService = new MyJefitPageService();
     }
 
-    @Test
+    @Test(description = "setStatusTest")
+    @Description("set status and checking it")
     public void setStatusTest() {
         myJefitPageService.sendStatus();
         String actualStatus = myJefitPageService.getStatus();

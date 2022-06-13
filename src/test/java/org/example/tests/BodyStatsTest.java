@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.example.page.MyJefitPage;
 import org.example.service.MyJefitPageService;
 import org.example.utils.Waiter;
@@ -23,8 +24,10 @@ public class BodyStatsTest extends BaseTest {
         myJefitPage = new MyJefitPage();
     }
 
-    @Test
-    public void goToPageBodyStats() {
+
+    @Test(description = "openPageBodyStats")
+    @Description("Open page Body Stats and checking it")
+    public void openPageBodyStats() {
         myJefitPageService.openPageLatestBodyStats();
         waiter.waitVisibilityOf(myJefitPage.getLinkLatestBodyStats());
         String actualNameOfLink = myJefitPageService.getLinkOnThePageLatestBodyStats();

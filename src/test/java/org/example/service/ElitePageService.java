@@ -18,7 +18,7 @@ public class ElitePageService extends LoginPageService{
     private final Waiter waiter = new Waiter();
 
     @Step("Open to Elite page")
-    public void openToElitePage() {
+    public void openElitePage() {
         log.info("Login");
         loginPageService.login();
         log.info("click button 'Get Elite'");
