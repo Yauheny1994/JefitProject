@@ -1,6 +1,5 @@
 package org.example.tests;
 
-import io.qameta.allure.Description;
 import org.example.service.MyJefitPageService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;

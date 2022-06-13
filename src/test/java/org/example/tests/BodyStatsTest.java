@@ -1,6 +1,5 @@
 package org.example.tests;
 
-import org.example.page.MyJefitPage;
 import org.example.service.MyJefitPageService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;

@@ -14,7 +14,6 @@ public class ElitePageService extends LoginPageService{
     private final LoginPageService loginPageService = new LoginPageService();
     private final MyJefitPage myJefitPage = new MyJefitPage();
     private final JavaScript javaScript = new JavaScript();
-//    private final Waiter waiter = new Waiter();
 
     @Step("Open to Elite page")
     public void openElitePage() {
