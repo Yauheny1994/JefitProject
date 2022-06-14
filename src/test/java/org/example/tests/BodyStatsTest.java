@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class BodyStatsTest extends BaseTest {
 
-    private static final String NAME_OF_LINK = "Latest Body Stats";
+    private static final String NAME_OF_LINK = "Latest Body Status";
     private MyJefitPageService myJefitPageService;
 
     @BeforeClass
