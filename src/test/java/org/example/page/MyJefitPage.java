@@ -25,7 +25,7 @@ public class MyJefitPage extends BasePage {
     @FindBy(xpath = "//textarea[@id='statusinputbox']")
     private WebElement statusField;
 
-    @FindBy(xpath = "//input[@value='Post']")
+    @FindBy(xpath = "//input[@value='Postttt']")
     private WebElement buttonPost;
 
     @FindBy(xpath = "//div[@class='col-11 pl-0 mx-0']")
