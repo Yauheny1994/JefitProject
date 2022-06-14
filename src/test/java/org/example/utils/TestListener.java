@@ -71,13 +71,9 @@ public class TestListener implements ITestListener {
     }
 
     @Attachment(value = "Last screen state", type = "image/png")
-    private void takeScreenshot() {
-        try {
-            File screenshotAs = ((TakesScreenshot) DriverSingleton.getInstance().getDriver()).getScreenshotAs(OutputType.FILE);
-            addAttachment("Screenshot", FileUtils.openInputStream(screenshotAs));
-            System.out.println("======================================== CREATING SCREENSHOT SUCCESS ========================================");
-        } catch (IOException | NoSuchSessionException e) {
-            System.out.println("======================================== CREATING SCREENSHOT FAILED ========================================");
-        }
+    private byte[] takeScreenshot() {
+        return ((TakesScreenshot) DriverSingleton.getInstance().getDriver())
+                .getScreenshotAs(OutputType.BYTES);
     }
 }
+
