@@ -1,15 +1,20 @@
 package org.example.utils;
 
 import io.qameta.allure.Attachment;
+import org.apache.commons.io.FileUtils;
 import org.example.driver.DriverSingleton;
+import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import static io.qameta.allure.Allure.addAttachment;
 
 
 public class TestListener implements ITestListener {
@@ -66,8 +71,13 @@ public class TestListener implements ITestListener {
     }
 
     @Attachment(value = "Last screen state", type = "image/png")
-    private byte[] takeScreenshot() {
-        return ((TakesScreenshot) DriverSingleton.getInstance().getDriver())
-                .getScreenshotAs(OutputType.BYTES);
+    private void takeScreenshot() {
+        try {
+            File screenshotAs = ((TakesScreenshot) DriverSingleton.getInstance().getDriver()).getScreenshotAs(OutputType.FILE);
+            addAttachment("Screenshot", FileUtils.openInputStream(screenshotAs));
+            System.out.println("======================================== CREATING SCREENSHOT SUCCESS ========================================");
+        } catch (IOException | NoSuchSessionException e) {
+            System.out.println("======================================== CREATING SCREENSHOT FAILED ========================================");
+        }
     }
 }
