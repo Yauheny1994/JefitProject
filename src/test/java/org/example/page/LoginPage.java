@@ -24,21 +24,18 @@ public class LoginPage extends BasePage {
 
     @Step("Open 'Login' page")
     public LoginPage openPage(String url) {
-        log.info("open 'Login' page");
         driver.get(url);
         return this;
     }
 
     @Step("Clear field User Name")
     public LoginPage clearFieldUserName() {
-        log.info("clear field User Name");
         userNameField.clear();
         return this;
     }
 
     @Step("Clear field Password")
     public LoginPage clearFieldPassword() {
-        log.info("clear field Password");
         passwordField.clear();
         return this;
     }
@@ -63,13 +60,11 @@ public class LoginPage extends BasePage {
 
     @Step("Click button 'Login'")
     public void clickButtonLogin() {
-        log.info("click button 'Login'");
         logInButton.click();
     }
 
     @Step("Get 'Invalid Message'")
     public String getInvalidMessage() {
-        log.info("get 'Invalid Message'");
         return invalidMessage.getText();
     }
 }

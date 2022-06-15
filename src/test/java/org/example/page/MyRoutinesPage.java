@@ -25,7 +25,6 @@ public class MyRoutinesPage extends BasePage {
 
     @Step("Click 'Routine Manage' link")
     public MyRoutinesPage clickLinkRoutineManager() {
-        log.info("click 'Routine Manage' link");
         waitElementToBeClickable(tabRoutineManager);
         tabRoutineManager.click();
         return this;
@@ -33,21 +32,18 @@ public class MyRoutinesPage extends BasePage {
 
     @Step("Click button 'Create new account'")
     public void clickButtonCreateNewAccount() {
-        log.info("click button 'Create new account'");
         waitElementToBeClickable(buttonCreateNewRoutine);
         buttonCreateNewRoutine.click();
     }
 
     @Step("Click button 'Download a routine'")
     public void clickButtonDownloadARoutine() {
-        log.info("click button 'Download a routine'");
         waitElementToBeClickable(buttonDownloadARoutine);
         buttonDownloadARoutine.click();
     }
 
     @Step("Get name of downloaded routine")
     public String getNameOfDownloadedRoutine() {
-        log.info("get name of downloaded routine");
         waitVisibilityOf(nameOfDownloadedRoutine);
         return nameOfDownloadedRoutine.getText();
     }

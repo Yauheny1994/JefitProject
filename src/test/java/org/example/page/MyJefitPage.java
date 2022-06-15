@@ -40,7 +40,6 @@ public class MyJefitPage extends BasePage {
 
     @Step("Click link 'My routines Page' on 'My Jefit' page")
     public void openMyRoutinesPage() {
-        log.info("click link 'My routines Page' on 'My Jefit' page");
         waitElementToBeClickable(buttonMyRoutines);
         buttonMyRoutines.click();
     }
@@ -63,7 +62,6 @@ public class MyJefitPage extends BasePage {
 
     @Step("Open 'My Jefit' page")
     public void refreshPage() {
-        log.info("open 'My Jefit' page");
         driver.get(URL_MY_JEFIT_PAGE);
     }
 
@@ -83,21 +81,18 @@ public class MyJefitPage extends BasePage {
 
     @Step("Get button 'Home' after successful login on 'My Jefit' page")
     public String getTextHome() {
-        log.info("get button 'Home' after successful login on 'My Jefit' page");
         waitVisibilityOf(buttonHome);
         return buttonHome.getText();
     }
 
     @Step("Get 'Status'")
     public String getStatusText() {
-        log.info("get 'Status'");
         waitVisibilityOf(status);
         return status.getText();
     }
 
     @Step("Get name 'Body Stats'")
     public String getTextLinkOnThePageLatestBodyStats() {
-        log.info("get name 'Body Stats'");
         waitVisibilityOf(linkLatestBodyStats);
         return linkLatestBodyStats.getText();
     }

@@ -23,20 +23,17 @@ public class RoutineManagerPage extends BasePage {
 
     @Step("Fill name of created routine")
     public void fillNameOFCreatedRoutine() {
-        log.info("fill name of created routine");
         fieldRoutineName.sendKeys(NAME_OF_CREATED_ROUTINE);
     }
 
     @Step("Click button 'Save Routine")
     public void clickButtonSaveRoutine() {
-        log.info("click button 'Save Routine'");
         waitElementToBeClickable(buttonSaveRoutine);
         buttonSaveRoutine.click();
     }
 
     @Step("Get name of Routine")
     public String getNameOfCreatedRoutine() {
-        log.info("get name of Routine");
         return nameOfCreatedRoutine.getText();
     }
 }
