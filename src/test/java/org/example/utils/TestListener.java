@@ -1,20 +1,14 @@
 package org.example.utils;
 
 import io.qameta.allure.Attachment;
-import org.apache.commons.io.FileUtils;
 import org.example.driver.DriverSingleton;
-import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
-import static io.qameta.allure.Allure.addAttachment;
 
 
 public class TestListener implements ITestListener {

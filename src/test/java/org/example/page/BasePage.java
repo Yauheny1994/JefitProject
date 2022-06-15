@@ -12,18 +12,20 @@ import java.time.Duration;
 public abstract class BasePage {
 
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
-    private final static int WAIT_TIMEOUT_SECONDS = 20;
+    private final static int WAIT_TIMEOUT_SECONDS = 5;
 
      BasePage() {
         PageFactory.initElements(driver, this);
     }
 
     protected WebElement waitVisibilityOf(WebElement element) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.visibilityOf(element));
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.
+                visibilityOf(element));
     }
 
     protected WebElement waitElementToBeClickable(WebElement element) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.elementToBeClickable(element));
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.
+                elementToBeClickable(element));
     }
 
 }
