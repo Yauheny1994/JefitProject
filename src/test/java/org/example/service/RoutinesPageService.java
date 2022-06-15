@@ -26,7 +26,6 @@ public class RoutinesPageService {
         javaScript.scrollDownThePage();
         log.info("click 'Name of plan'");
         routinesPage.clickNameOfPlan();
-        log.info("wait button save to my workout");
         log.info("scroll to the element");
         javaScript.scrollToTheElementOnRoutinePage();
         log.info("click button 'Save to My Workout'");

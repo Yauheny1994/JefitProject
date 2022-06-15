@@ -33,14 +33,12 @@ public class MyRoutinePageService {
     public void createNewRoutine() {
         log.info("login");
         loginPageService.login();
-        log.info("wait button my routine");
         log.info("open 'My Routine Page'");
         myJefitPageService.openMyRoutinePage();
         log.info("create new account");
         myRoutinesPage.clickLinkRoutineManager();
         log.info("wait button create new routine");
         myRoutinesPage.clickButtonCreateNewAccount();
-        log.info("wait field routine name");
         log.info("fill name of routine");
         routineManagerPage.fillNameOFCreatedRoutine();
         javaScript.scrollDownThePage();
